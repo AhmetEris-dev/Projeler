@@ -20,4 +20,9 @@ private String ligIsmi;
 	public void setLigIsmi(String ligIsmi) {
 		this.ligIsmi = ligIsmi;
 	}
+	
+	@Override
+	public String toString() {
+		return "Lig{" + "ligIsmi='" + getLigIsmi() + '\'' + ", id=" + getId() + '}';
+	}
 }

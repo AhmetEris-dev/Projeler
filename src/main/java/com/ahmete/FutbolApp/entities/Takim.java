@@ -1,8 +1,8 @@
 package com.ahmete.FutbolApp.entities;
 
-import java.util.ArrayList;
+import com.ahmete.FutbolApp.utility.enums.ERenkler;
+
 import java.util.Arrays;
-import java.util.List;
 
 /*
 renkler
@@ -16,9 +16,9 @@ public class Takim extends BaseEntitiy {
 	private String kurulusTarihi;
 	private Integer puan;
 	private Integer ligID;
-	private ERenkler[] renkler;
+	private ERenkler renkler;
 	
-	public Takim(String takimIsim, String baskanIsmi, String teknikDirektor, String kurulusTarihi, Integer puan, Integer ligID, ERenkler[] renkler) {
+	public Takim(String takimIsim, String baskanIsmi, String teknikDirektor, String kurulusTarihi, Integer puan, Integer ligID, ERenkler renkler) {
 		this.takimIsim = takimIsim;
 		this.baskanIsmi = baskanIsmi;
 		this.teknikDirektor = teknikDirektor;
@@ -26,6 +26,7 @@ public class Takim extends BaseEntitiy {
 		this.puan = puan;
 		this.ligID = ligID;
 		this.renkler = renkler;
+		this.id=++takimIdCount;
 	}
 	
 	public static int getTakimIdCount() {
@@ -84,11 +85,16 @@ public class Takim extends BaseEntitiy {
 		this.ligID = ligID;
 	}
 	
-	public ERenkler[] getRenkler() {
+	public ERenkler getRenkler() {
 		return renkler;
 	}
 	
-	public void setRenkler(ERenkler[] renkler) {
+	public void setRenkler(ERenkler renkler) {
 		this.renkler = renkler;
+	}
+	
+	@Override
+	public String toString() {
+		return "Takim{" + "takimIsim='" + getTakimIsim() + '\'' + ", baskanIsmi='" + getBaskanIsmi() + '\'' + ", teknikDirektor='" + getTeknikDirektor() + '\'' + ", kurulusTarihi='" + getKurulusTarihi() + '\'' + ", puan=" + getPuan() + ", ligID=" + getLigID() + ", renkler=" + getRenkler() + ", id=" + getId() + '}';
 	}
 }

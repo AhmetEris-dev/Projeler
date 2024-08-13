@@ -1,5 +1,6 @@
 package com.ahmete.FutbolApp.entities;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Musabaka extends BaseEntitiy{
@@ -10,9 +11,9 @@ public class Musabaka extends BaseEntitiy{
 	private int evSahibiSkor;
 	private int misafirTakimSkor;
 	private String hakemIsmi;
-	private LocalDateTime musabakaTarihi;
+	private LocalDate musabakaTarihi;
 	
-	public Musabaka(Takim evSahibi, Takim misafirTakim, String stadyum, int evSahibiSkor, int misafirTakimSkor, String hakemIsmi, LocalDateTime musabakaTarihi) {
+	public Musabaka(Takim evSahibi, Takim misafirTakim, String stadyum, int evSahibiSkor, int misafirTakimSkor, String hakemIsmi, LocalDate musabakaTarihi) {
 		this.evSahibi = evSahibi;
 		this.misafirTakim = misafirTakim;
 		this.stadyum = stadyum;
@@ -78,11 +79,16 @@ public class Musabaka extends BaseEntitiy{
 		this.hakemIsmi = hakemIsmi;
 	}
 	
-	public LocalDateTime getMusabakaTarihi() {
+	public LocalDate getMusabakaTarihi() {
 		return musabakaTarihi;
 	}
 	
-	public void setMusabakaTarihi(LocalDateTime musabakaTarihi) {
+	public void setMusabakaTarihi(LocalDate musabakaTarihi) {
 		this.musabakaTarihi = musabakaTarihi;
+	}
+	
+	@Override
+	public String toString() {
+		return "Musabaka{" + "evSahibi=" + getEvSahibi() + ", misafirTakim=" + getMisafirTakim() + ", stadyum='" + getStadyum() + '\'' + ", evSahibiSkor=" + getEvSahibiSkor() + ", misafirTakimSkor=" + getMisafirTakimSkor() + ", hakemIsmi='" + getHakemIsmi() + '\'' + ", musabakaTarihi=" + getMusabakaTarihi() + ", id=" + getId() + '}';
 	}
 }

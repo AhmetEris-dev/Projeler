@@ -3,6 +3,8 @@ package com.ahmete.FutbolApp.entities;
  * yetenekler
  */
 
+import com.ahmete.FutbolApp.utility.enums.EMevki;
+
 import java.time.LocalDate;
 
 public class Futbolcu extends BaseEntitiy{
@@ -13,15 +15,16 @@ public class Futbolcu extends BaseEntitiy{
 	private LocalDate dogumTarihi;
 	private String bonservisBedeli;
 	private EMevki mevki;
-	private Integer takimID; //takım id tut
+	private Integer takimID;
 	
-	public Futbolcu(String isim, String soyIsim, LocalDate dogumTarihi, String bonservisBedeli, EMevki mevki, Integer takimID) {
+	public Futbolcu(String isim, String soyIsim, LocalDate dogumTarihi, String bonservisBedeli, EMevki mevki) {
 		this.isim = isim;
 		this.soyIsim = soyIsim;
 		this.dogumTarihi = dogumTarihi;
 		this.bonservisBedeli = bonservisBedeli;
 		this.mevki = mevki;
-		this.takimID = takimID;
+		this.id=++futbolcuIdCount;
+		
 	}
 	
 	public static int getFutbolcuIdCount() {
@@ -78,5 +81,10 @@ public class Futbolcu extends BaseEntitiy{
 	
 	public void setTakimID(Integer takimID) {
 		this.takimID = takimID;
+	}
+	
+	@Override
+	public String toString() {
+		return "Futbolcu{" + "isim='" + getIsim() + '\'' + ", soyIsim='" + getSoyIsim() + '\'' + ", dogumTarihi=" + getDogumTarihi() + ", bonservisBedeli='" + getBonservisBedeli() + '\'' + ", mevki=" + getMevki() + ", takimID=" + getTakimID() + ", id=" + getId() + '}';
 	}
 }

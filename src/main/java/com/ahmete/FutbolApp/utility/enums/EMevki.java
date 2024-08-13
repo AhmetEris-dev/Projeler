@@ -1,4 +1,4 @@
-package com.ahmete.FutbolApp.entities;
+package com.ahmete.FutbolApp.utility.enums;
 
 public enum EMevki {
 	KALECI,

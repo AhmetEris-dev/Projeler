@@ -1,15 +1,17 @@
 package com.ahmete.FutbolApp.utility;
 
+import java.util.List;
+import java.util.Optional;
+
 public interface ICRUD<T> {
 	
-	T save(T t);
+	Optional<T> save(T t);
 	
-	Iterable<T> saveAll(Iterable<T> t);
+	Optional<List<T>> saveAll(List<T> t);
 	
-	T update( T t);
+	Optional<T> update( T t);
 	
-	Iterable<T> findAll();
+	Optional<List<T>> findAll();
 	
-	T findByID(int id);
-	
+	Optional<T> findById(int id);
 }

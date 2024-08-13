@@ -3,11 +3,9 @@ package com.ahmete.FutbolApp.Databases;
 import com.ahmete.FutbolApp.entities.Lig;
 import com.ahmete.FutbolApp.utility.DataBaseManager;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
-public class ligDB extends DataBaseManager<Lig> {
+public class LigDB extends DataBaseManager<Lig> {
 	
 	// lig ismine göre bulma
 	public Optional<Lig> ligIsmiBul(String ligIsmi){

@@ -1,17 +1,62 @@
 package com.ahmete.FutbolApp.utility;
 
+import com.ahmete.FutbolApp.Databases.FutbolcuDB;
+import com.ahmete.FutbolApp.Databases.LigDB;
 import com.ahmete.FutbolApp.Databases.TakimDB;
+import com.ahmete.FutbolApp.entities.Futbolcu;
+import com.ahmete.FutbolApp.entities.Lig;
 import com.ahmete.FutbolApp.entities.Takim;
+import com.ahmete.FutbolApp.utility.enums.EMevki;
 import com.ahmete.FutbolApp.utility.enums.ERenkler;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class DataGenerator {
-	private static TakimDB takimDB;
-	public  List<Takim> takimList=new ArrayList<>();
+	private static final String[] ISIM={
+			"Ahmet", "Mehmet", "Ali", "Anıl", "Hasan", "Murat", "Kemal", "İbrahim", "Oğuz", "Emre", "Serkan", "Barış",
+			"Halil", "Berk", "Kaan", "Sinan", "Erdem", "Hakan", "Cihan", "Levent", "Rıza", "Volkan", "Arda", "Sefa", "Fikret", "Can", "Orhan", "Eren", "Burak", "Selim", "Tolga", "Umut", "Uğur", "Özgür", "Taner", "Kadir", "Cem", "Ege", "Bora", "Mert", "Vedat", "Deniz", "Tarık", "Yavuz", "Gökhan", "Koray", "Enes", "Erkan", "Tuncay", "Fırat", "Tamer"
+	};
 	
-	Takim takim1 = new Takim("Galatasaray",  ERenkler.KIRMIZI_SARI, "Dursun Özbek", "1905", takimDB);
+	private static final String[] SOYISIM={
+			"Özogli", "Kaya", "Demir", "Çelik", "Şahin", "Aydın", "Yıldız", "Arslan", "Doğan", "Güneş", "Öztürk", "Kıl",
+			"ıç",	"Kurt", "Koç", "Erdoğan", "Polat", "Avcı", "Aksoy", "Taş", "Ünal", "Durmaz", "Erdem", "Bulut", "Çetin", "Korkmaz", "Keskin", "Tan", "Güler", "Baş", "Bozkurt", "Ergin", "Özdemir", "Can", "Karaca", "Orhan", "Turan", "Kara", "Ay", "Tekin", "Aslan", "Kurtuluş", "Uzun", "Çalışkan", "Yücel", "Dinç", "Boz", "Duman", "Şen", "Eken", "Işık", "Özer"
+	};
+	public static void rastgeleFutbolcuUret(FutbolcuDB futbolcuDB){
+		Random random=new Random();
+		int takimID=1;
+		for (int i=0;i<18;i++){
+			for (int j = 0; j <11 ; j++) {
+				Futbolcu futbolcu=new Futbolcu(futbolcuDB);
+				switch (j){
+					case 0:
+						futbolcu.setMevki(EMevki.KALECI);
+					break;
+					case 1,2,3,4:
+						futbolcu.setMevki(EMevki.DEFANS);
+					break;
+					case 5,6,7,8:
+						futbolcu.setMevki(EMevki.ORTASAHA);
+						break;
+					case 9,10:
+						futbolcu.setMevki(EMevki.HUCUM);
+						break;
+				}
+				futbolcu.setIsim(ISIM[random.nextInt(0,ISIM.length)]);
+				futbolcu.setSoyIsim(SOYISIM[random.nextInt(0,SOYISIM.length)]);
+				futbolcu.setBonservisBedeli(random.nextLong(100_000,5_000_000));
+				futbolcu.setDogumTarihi(LocalDate.of(random.nextInt(1980,2005), random.nextInt(1,13),
+				                                     random.nextInt(1,31)));
+				futbolcu.setTakimID(takimID);
+			}
+		}
+		takimID++;
+	}
+
+	public static void generateTakimlar(TakimDB takimDB, LigDB ligDB){
+		Takim takim1 = new Takim("Galatasaray",  ERenkler.KIRMIZI_SARI, "Dursun Özbek", "1905", takimDB);
 	Takim takim2 = new Takim("Fenerbahçe",  ERenkler.SARI_LACIVERT, "Ali Koç", "1907", takimDB);
 	Takim takim3 = new Takim("Beşiktaş",  ERenkler.SİYAH_BEYAZ, "Ahmet Nur Çebi", "1903", takimDB);
 	Takim takim4 = new Takim("Trabzonspor",  ERenkler.BORDO_MAVİ, "Ahmet Ağaoğlu", "1967", takimDB);
@@ -29,10 +74,12 @@ public class DataGenerator {
 	Takim takim16 = new Takim("Yeni Malatyaspor",  ERenkler.YEŞİL_SIYAH, "Adil Gevrek", "1986", takimDB);
 	Takim takim17 = new Takim("Göztepe",  ERenkler.ÇİFT_KIRMIZI, "Mehmet Sepil", "1925", takimDB);
 	Takim takim18 = new Takim("Denizlispor",  ERenkler.ÇİFT_KIRMIZI, "Ali İpek", "1966", takimDB);
-	
-	public static TakimDB getTakimDB() {
-		List<Takim> takimList=takimDB.saveAll(new ArrayList<>());
-		System.out.println(takimList);
-		return takimDB;
+		
+		Lig turkiyeSuperLigi=new Lig("Türkiye super lig",ligDB);
+		
+		turkiyeSuperLigi.getTakimList().addAll(List.of(takim1,takim2,takim3,takim4,takim5,takim6,takim7,takim8,
+		                                                takim9,takim10,takim11,takim12,takim13,takim14,takim15,
+		                                                takim16,takim17,takim18));
 	}
+	
 }

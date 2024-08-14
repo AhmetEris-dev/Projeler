@@ -10,7 +10,7 @@ public class Manajer extends BaseEntitiy {
 	private long sozlesmeBedeli;
 	private LocalDate dogumTarihi;
 	
-	public Manajer(String isim, String soyIsim, long sozlesmeBedeliy, LocalDate dogumTarihi) {
+	public Manajer(String isim, String soyIsim, long sozlesmeBedeli, LocalDate dogumTarihi) {
 		this.isim = isim;
 		this.soyIsim = soyIsim;
 		this.sozlesmeBedeli = sozlesmeBedeli;

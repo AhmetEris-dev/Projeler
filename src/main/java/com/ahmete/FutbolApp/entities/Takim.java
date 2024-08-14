@@ -23,6 +23,11 @@ public class Takim extends BaseEntitiy {
 		takimDB.save(this);
 	}
 	
+	public Takim(TakimDB takimDB) {
+		this.id=++takimIdCount;
+		takimDB.save(this);
+	}
+	
 	public static int getTakimIdCount() {
 		return takimIdCount;
 	}

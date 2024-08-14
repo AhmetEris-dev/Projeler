@@ -4,23 +4,26 @@ package com.ahmete.FutbolApp.entities;
 import com.ahmete.FutbolApp.Databases.LigDB;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 public class Lig extends BaseEntitiy {
 	static int ligIDCount = 0;
 	//alperen hocaya hashmap ile olurmu sor
 	
 	private String ligIsmi;
-	private List<Integer> takimIDLer=new ArrayList<>();
-	private List<Integer> takimPuanlari=new ArrayList<>();
+	private List<Takim> takimList;
 	
 	
-	public Lig(String ligIsmi, List<Integer> takimIDLer, List<Integer> takimPuanlari, LigDB ligDB) {
+	public Lig(LigDB ligDB) {
+		this.id=++ligIDCount;
+		takimList=new ArrayList<>();
+		ligDB.save(this);
+	}
+	
+	public Lig(String ligIsmi,LigDB ligDB) {
 		this.ligIsmi = ligIsmi;
-		this.takimIDLer = takimIDLer;
-		this.takimPuanlari = takimPuanlari;
+		takimList=new ArrayList<>();
 		ligDB.save(this);
 	}
 	
@@ -40,24 +43,16 @@ public class Lig extends BaseEntitiy {
 		this.ligIsmi = ligIsmi;
 	}
 	
-	public List<Integer> getTakimIDLer() {
-		return takimIDLer;
+	public List<Takim> getTakimList() {
+		return takimList;
 	}
 	
-	public void setTakimIDLer(List<Integer> takimIDLer) {
-		this.takimIDLer = takimIDLer;
-	}
-	
-	public List<Integer> getTakimPuanlari() {
-		return takimPuanlari;
-	}
-	
-	public void setTakimPuanlari(List<Integer> takimPuanlari) {
-		this.takimPuanlari = takimPuanlari;
+	public void setTakimList(List<Takim> takimList) {
+		this.takimList = takimList;
 	}
 	
 	@Override
 	public String toString() {
-		return "Lig{" + "ligIsmi='" + getLigIsmi() + '\'' + ", takimIDLer=" + getTakimIDLer() + ", takimPuanlari=" + getTakimPuanlari() + ", id=" + getId() + '}';
+		return "Lig{" + "ligIsmi='" + getLigIsmi() + '\'' + ", takimList=" + getTakimList() + ", id=" + getId() + '}';
 	}
 }

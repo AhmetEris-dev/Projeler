@@ -14,11 +14,12 @@ public class Futbolcu extends BaseEntitiy{
 	private String isim;
 	private String soyIsim;
 	private LocalDate dogumTarihi;
-	private String bonservisBedeli;
+	private Long bonservisBedeli;
 	private EMevki mevki;
 	private Integer takimID;
 	
-	public Futbolcu(String isim, String soyIsim, LocalDate dogumTarihi, String bonservisBedeli, EMevki mevki,FutbolcuDB futbolcuDB) {
+	public Futbolcu(String isim, String soyIsim, LocalDate dogumTarihi, Long bonservisBedeli, EMevki mevki,
+	                FutbolcuDB futbolcuDB) {
 		this.isim = isim;
 		this.soyIsim = soyIsim;
 		this.dogumTarihi = dogumTarihi;
@@ -27,6 +28,11 @@ public class Futbolcu extends BaseEntitiy{
 		this.id=++futbolcuIdCount;
 		futbolcuDB.save(this);
 		
+	}
+	
+	public Futbolcu(FutbolcuDB futbolcuDB) {
+		futbolcuDB.save(this);
+		this.id=++futbolcuIdCount;
 	}
 	
 	public static int getFutbolcuIdCount() {
@@ -61,11 +67,11 @@ public class Futbolcu extends BaseEntitiy{
 		this.dogumTarihi = dogumTarihi;
 	}
 	
-	public String getBonservisBedeli() {
+	public Long getBonservisBedeli() {
 		return bonservisBedeli;
 	}
 	
-	public void setBonservisBedeli(String bonservisBedeli) {
+	public void setBonservisBedeli(Long bonservisBedeli) {
 		this.bonservisBedeli = bonservisBedeli;
 	}
 	

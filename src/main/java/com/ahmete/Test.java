@@ -31,19 +31,23 @@ public class Test {
 		Futbolcu futbolcu=new Futbolcu("ahmet","eris",LocalDate.of(1997,9,1),"20m",EMevki.KALECI,futbolcuDB);
 //		System.out.println(futbolcu);
 		
-//		Takim takim=new Takim("gala","asdasdsad","asdasdasd",ERenkler.KIRMIZI_SARI,takimDB);
-//		Takim takim1=new Takim("gala","asdasdsad","asdasdasd",ERenkler.SARI_LACIVERT,takimDB);
-//		Takim takim2=new Takim("gala","asdasdsad","asdasdasd",ERenkler.KIRMIZI_SARI,takimDB);
-////		System.out.println(takimDB.findAll());
+		
+		Takim takim=new Takim("asdsadasd",ERenkler.KIRMIZI_SARI,"asdasd","sadasd",takimDB);
+		Takim takim1=new Takim("asdsadasd",ERenkler.KIRMIZI_SARI,"asdasd","sadasd",takimDB);
+		Takim takim2=new Takim("asdsadasd",ERenkler.KIRMIZI_SARI,"asdasd","sadasd",takimDB);
+		Takim takim3=new Takim("asdsadasd",ERenkler.KIRMIZI_SARI,"asdasd","sadasd",takimDB);
+		Takim takim4=new Takim("asdsadasd",ERenkler.KIRMIZI_SARI,"asdasd","sadasd",takimDB);
+		
+//		System.out.println(takimDB.findAll());
 		System.out.println("renklere göre bul");
 		
 		List<Takim> takimList = takimDB.renklereGoreTakimBul(ERenkler.KIRMIZI_SARI);
 		System.out.println(takimList);
 
 
-//		menu();
+		menu();
 		
-		DataGenerator.getTakimDB();
+		
 		
 	}
 	static void menu(){
@@ -59,7 +63,7 @@ public class Test {
 			
 			switch (secim){
 				case 1:{
-					tumkulupleriListele2();
+					tumkulupleriListele();
 					break;
 				}
 				case 0 :{
@@ -72,7 +76,7 @@ public class Test {
 		}
 	}
 	
-	public static void tumkulupleriListele2() {
+	public static void tumkulupleriListele() {
 		List<Takim> takimList=takimDB.findAll();
 		takimList.forEach(System.out::println);
 	}

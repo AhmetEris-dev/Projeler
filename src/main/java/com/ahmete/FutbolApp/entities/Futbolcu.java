@@ -3,6 +3,7 @@ package com.ahmete.FutbolApp.entities;
  * yetenekler
  */
 
+import com.ahmete.FutbolApp.Databases.FutbolcuDB;
 import com.ahmete.FutbolApp.utility.enums.EMevki;
 
 import java.time.LocalDate;
@@ -17,13 +18,14 @@ public class Futbolcu extends BaseEntitiy{
 	private EMevki mevki;
 	private Integer takimID;
 	
-	public Futbolcu(String isim, String soyIsim, LocalDate dogumTarihi, String bonservisBedeli, EMevki mevki) {
+	public Futbolcu(String isim, String soyIsim, LocalDate dogumTarihi, String bonservisBedeli, EMevki mevki,FutbolcuDB futbolcuDB) {
 		this.isim = isim;
 		this.soyIsim = soyIsim;
 		this.dogumTarihi = dogumTarihi;
 		this.bonservisBedeli = bonservisBedeli;
 		this.mevki = mevki;
 		this.id=++futbolcuIdCount;
+		futbolcuDB.save(this);
 		
 	}
 	

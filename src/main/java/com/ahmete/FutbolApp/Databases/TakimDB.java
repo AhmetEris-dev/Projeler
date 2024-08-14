@@ -4,6 +4,7 @@ import com.ahmete.FutbolApp.utility.enums.ERenkler;
 import com.ahmete.FutbolApp.entities.Takim;
 import com.ahmete.FutbolApp.utility.DataBaseManager;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -22,6 +23,25 @@ public class TakimDB extends DataBaseManager<Takim> {
 				.filter(takim ->takim.getRenkler().equals(renkler))
 				.collect(Collectors.toList());
 				
+		
+	}
+	public List<Takim> ismeGoreButunTakimleriListele(String takimIsmi){
+		
+			return 	veriListesi.stream().filter(takim -> takim.getTakimIsim().toLowerCase().contains(takimIsmi))
+				           .collect(Collectors.toList());
+		
+		
+		
+	}
+	public List<Takim> renklereGoreTakimBul2(ERenkler renkler){
+		List<Takim> takimRenkleri=new ArrayList<>();
+		for (Takim takim:veriListesi){
+			if (takim.getRenkler().equals(renkler)){
+				takimRenkleri.add(takim);
+			}
+			
+		}
+		return takimRenkleri;
 		
 	}
 	

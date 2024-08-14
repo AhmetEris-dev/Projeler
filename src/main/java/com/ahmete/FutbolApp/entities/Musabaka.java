@@ -1,5 +1,7 @@
 package com.ahmete.FutbolApp.entities;
 
+import com.ahmete.FutbolApp.Databases.MusabakaDB;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -11,9 +13,10 @@ public class Musabaka extends BaseEntitiy{
 	private int evSahibiSkor;
 	private int misafirTakimSkor;
 	private String hakemIsmi;
-	private LocalDate musabakaTarihi;
+	private LocalDateTime musabakaTarihi; //localdate time yap
 	
-	public Musabaka(Takim evSahibi, Takim misafirTakim, String stadyum, int evSahibiSkor, int misafirTakimSkor, String hakemIsmi, LocalDate musabakaTarihi) {
+	public Musabaka(Takim evSahibi, Takim misafirTakim, String stadyum, int evSahibiSkor, int misafirTakimSkor,
+	                String hakemIsmi, LocalDateTime musabakaTarihi, MusabakaDB musabakaDB) {
 		this.evSahibi = evSahibi;
 		this.misafirTakim = misafirTakim;
 		this.stadyum = stadyum;
@@ -21,6 +24,7 @@ public class Musabaka extends BaseEntitiy{
 		this.misafirTakimSkor = misafirTakimSkor;
 		this.hakemIsmi = hakemIsmi;
 		this.musabakaTarihi = musabakaTarihi;
+		musabakaDB.save(this);
 	}
 	
 	public static int getMusabakaIDCOunt() {
@@ -79,11 +83,11 @@ public class Musabaka extends BaseEntitiy{
 		this.hakemIsmi = hakemIsmi;
 	}
 	
-	public LocalDate getMusabakaTarihi() {
+	public LocalDateTime getMusabakaTarihi() {
 		return musabakaTarihi;
 	}
 	
-	public void setMusabakaTarihi(LocalDate musabakaTarihi) {
+	public void setMusabakaTarihi(LocalDateTime musabakaTarihi) {
 		this.musabakaTarihi = musabakaTarihi;
 	}
 	

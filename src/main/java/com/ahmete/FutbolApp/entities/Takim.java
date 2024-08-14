@@ -1,32 +1,26 @@
 package com.ahmete.FutbolApp.entities;
 
+import com.ahmete.FutbolApp.Databases.TakimDB;
 import com.ahmete.FutbolApp.utility.enums.ERenkler;
 
 import java.util.Arrays;
 
-/*
-renkler
- */
 public class Takim extends BaseEntitiy {
 	static int takimIdCount = 0;
 	
 	private String takimIsim;
 	private String baskanIsmi;
-	private String teknikDirektor;
 	private String kurulusTarihi;
-	private Integer puan;
-	private Integer ligID;
 	private ERenkler renkler;
+	private int menajerID=-1;
 	
-	public Takim(String takimIsim, String baskanIsmi, String teknikDirektor, String kurulusTarihi, Integer puan, Integer ligID, ERenkler renkler) {
+	public Takim(String takimIsim, ERenkler renkler, String baskanIsmi, String kurulusTarihi,TakimDB takimDB) {
 		this.takimIsim = takimIsim;
-		this.baskanIsmi = baskanIsmi;
-		this.teknikDirektor = teknikDirektor;
-		this.kurulusTarihi = kurulusTarihi;
-		this.puan = puan;
-		this.ligID = ligID;
 		this.renkler = renkler;
-		this.id=++takimIdCount;
+		this.baskanIsmi = baskanIsmi;
+		this.kurulusTarihi = kurulusTarihi;
+		this.menajerID = menajerID;
+		takimDB.save(this);
 	}
 	
 	public static int getTakimIdCount() {
@@ -53,13 +47,6 @@ public class Takim extends BaseEntitiy {
 		this.baskanIsmi = baskanIsmi;
 	}
 	
-	public String getTeknikDirektor() {
-		return teknikDirektor;
-	}
-	
-	public void setTeknikDirektor(String teknikDirektor) {
-		this.teknikDirektor = teknikDirektor;
-	}
 	
 	public String getKurulusTarihi() {
 		return kurulusTarihi;
@@ -69,21 +56,7 @@ public class Takim extends BaseEntitiy {
 		this.kurulusTarihi = kurulusTarihi;
 	}
 	
-	public Integer getPuan() {
-		return puan;
-	}
 	
-	public void setPuan(Integer puan) {
-		this.puan = puan;
-	}
-	
-	public Integer getLigID() {
-		return ligID;
-	}
-	
-	public void setLigID(Integer ligID) {
-		this.ligID = ligID;
-	}
 	
 	public ERenkler getRenkler() {
 		return renkler;
@@ -95,6 +68,6 @@ public class Takim extends BaseEntitiy {
 	
 	@Override
 	public String toString() {
-		return "Takim{" + "takimIsim='" + getTakimIsim() + '\'' + ", baskanIsmi='" + getBaskanIsmi() + '\'' + ", teknikDirektor='" + getTeknikDirektor() + '\'' + ", kurulusTarihi='" + getKurulusTarihi() + '\'' + ", puan=" + getPuan() + ", ligID=" + getLigID() + ", renkler=" + getRenkler() + ", id=" + getId() + '}';
+		return "Takim{" + "takimIsim='" + getTakimIsim() + '\'' + ", baskanIsmi='" + getBaskanIsmi() + '\'' + ", teknikDirektor='" + '\'' + ", kurulusTarihi='" + getKurulusTarihi() + '\'' + ", puan=" + ", renkler=" + getRenkler() + ", id=" + getId() + '}';
 	}
 }

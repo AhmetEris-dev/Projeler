@@ -1,6 +1,6 @@
 package com.ahmete.FutbolApp.utility;
 
-import com.ahmete.FutbolApp.entities.BaseEntitiy;
+import com.ahmete.FutbolApp.entities.BaseEntity;
 
 
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-public class DataBaseManager<T extends BaseEntitiy> implements ICRUD<T>{
+public class DataBaseManager<T extends BaseEntity> implements ICRUD<T>{
 	
 	protected List<T> veriListesi = new ArrayList<>();
 	
@@ -49,7 +49,7 @@ public class DataBaseManager<T extends BaseEntitiy> implements ICRUD<T>{
 	
 	@Override
 	public Optional<T> findById(int id) {
-		for (BaseEntitiy entity : veriListesi) {
+		for (BaseEntity entity : veriListesi) {
 			if (entity.getId() == id) {
 				return Optional.of((T) entity);
 			}

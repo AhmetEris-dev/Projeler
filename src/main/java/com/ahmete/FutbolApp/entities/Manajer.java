@@ -2,18 +2,18 @@ package com.ahmete.FutbolApp.entities;
 
 import java.time.LocalDate;
 
-public class Manajer extends BaseEntitiy {
+public class Manajer extends BaseEntity {
 	static int manajerIDCount;
 	
 	private String isim;
 	private String soyIsim;
-	private long sozlesmeBedeli;
+//	private long sozlesmeBedeli;  buraya sonradan sözleşme entitysi gelicek
 	private LocalDate dogumTarihi;
+	private int takimID=-1;
 	
-	public Manajer(String isim, String soyIsim, long sozlesmeBedeli, LocalDate dogumTarihi) {
+	public Manajer(String isim, String soyIsim, LocalDate dogumTarihi) {
 		this.isim = isim;
 		this.soyIsim = soyIsim;
-		this.sozlesmeBedeli = sozlesmeBedeli;
 		this.dogumTarihi = dogumTarihi;
 	}
 	
@@ -41,14 +41,6 @@ public class Manajer extends BaseEntitiy {
 		this.soyIsim = soyIsim;
 	}
 	
-	public long getSozlesmeBedeliy() {
-		return sozlesmeBedeli;
-	}
-	
-	public void setSozlesmeBedeliy(long sozlesmeBedeliy) {
-		this.sozlesmeBedeli = sozlesmeBedeliy;
-	}
-	
 	public LocalDate getDogumTarihi() {
 		return dogumTarihi;
 	}
@@ -57,8 +49,16 @@ public class Manajer extends BaseEntitiy {
 		this.dogumTarihi = dogumTarihi;
 	}
 	
+	public int getTakimID() {
+		return takimID;
+	}
+	
+	public void setTakimID(int takimID) {
+		this.takimID = takimID;
+	}
+	
 	@Override
 	public String toString() {
-		return "Manajer{" + "isim='" + getIsim() + '\'' + ", soyIsim='" + getSoyIsim() + '\'' + ", sozlesmeBedeli=" + getSozlesmeBedeliy() + ", dogumTarihi=" + getDogumTarihi() + ", id=" + getId() + '}';
+		return "Manajer{" + "isim='" + getIsim() + '\'' + ", soyIsim='" + getSoyIsim() + '\''  + ", dogumTarihi=" + getDogumTarihi() + ", id=" + getId() + '}';
 	}
 }

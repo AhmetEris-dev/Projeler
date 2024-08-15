@@ -1,6 +1,6 @@
 package com.ahmete.FutbolApp.entities;
 
-public class BaseEntitiy {
+public class BaseEntity {
 	
 	protected int id;
 	

@@ -8,7 +8,7 @@ import com.ahmete.FutbolApp.utility.enums.EMevki;
 
 import java.time.LocalDate;
 
-public class Futbolcu extends BaseEntitiy{
+public class Futbolcu extends BaseEntity {
 	static int futbolcuIdCount=0;
 	
 	private String isim;
@@ -18,7 +18,7 @@ public class Futbolcu extends BaseEntitiy{
 	private EMevki mevki;
 	private Integer takimID;
 	
-	public Futbolcu(String isim, String soyIsim, LocalDate dogumTarihi, Long bonservisBedeli, EMevki mevki,
+	public  Futbolcu(String isim, String soyIsim, LocalDate dogumTarihi, Long bonservisBedeli, EMevki mevki,
 	                FutbolcuDB futbolcuDB) {
 		this.isim = isim;
 		this.soyIsim = soyIsim;

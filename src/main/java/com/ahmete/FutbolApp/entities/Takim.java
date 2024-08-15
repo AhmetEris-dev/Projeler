@@ -3,23 +3,20 @@ package com.ahmete.FutbolApp.entities;
 import com.ahmete.FutbolApp.Databases.TakimDB;
 import com.ahmete.FutbolApp.utility.enums.ERenkler;
 
-import java.util.Arrays;
-
-public class Takim extends BaseEntitiy {
+public class Takim extends BaseEntity {
 	static int takimIdCount = 0;
 	
 	private String takimIsim;
 	private String baskanIsmi;
 	private String kurulusTarihi;
 	private ERenkler renkler;
-	private int menajerID=-1;
+//	private int menajerID=-1;
 	
 	public Takim(String takimIsim, ERenkler renkler, String baskanIsmi, String kurulusTarihi,TakimDB takimDB) {
 		this.takimIsim = takimIsim;
 		this.renkler = renkler;
 		this.baskanIsmi = baskanIsmi;
 		this.kurulusTarihi = kurulusTarihi;
-		this.menajerID = menajerID;
 		takimDB.save(this);
 	}
 	

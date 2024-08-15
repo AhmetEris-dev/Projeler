@@ -17,6 +17,7 @@ public class Takim extends BaseEntity {
 		this.renkler = renkler;
 		this.baskanIsmi = baskanIsmi;
 		this.kurulusTarihi = kurulusTarihi;
+		this.id=++takimIdCount;
 		takimDB.save(this);
 	}
 	

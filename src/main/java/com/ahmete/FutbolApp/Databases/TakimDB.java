@@ -24,14 +24,7 @@ public class TakimDB extends DataBaseManager<Takim> {
 				
 		
 	}
-	public List<Takim> ismeGoreButunTakimleriListele(String takimIsmi){
-		
-			return 	veriListesi.stream().filter(takim -> takim.getTakimIsim().toLowerCase().contains(takimIsmi))
-				           .collect(Collectors.toList());
-		
-		
-		
-	}
+
 	public List<Takim> renklereGoreTakimBul2(ERenkler renkler){
 		List<Takim> takimRenkleri=new ArrayList<>();
 		for (Takim takim:veriListesi){
@@ -43,15 +36,39 @@ public class TakimDB extends DataBaseManager<Takim> {
 		return takimRenkleri;
 		
 	}
-	public List<Takim> searchByPartialName(String ismeGore) {
-		return veriListesi.stream()
-		                  .filter(takim -> takim.getTakimIsim().toLowerCase().contains(ismeGore.toLowerCase()))
-		                  .collect(Collectors.toList());
+	public void searchByPartialName(String ismeGore) {
+		veriListesi.stream()
+				.map(takim -> takim.getId()+" "+takim.getTakimIsim())
+				.forEach(System.out::println);
 	}
 	
 	public List<Takim> ismeGoreButunTakimlariListele(String kulupIsmi) {
 		return veriListesi.stream()
 		                  .toList();
+	}
+	public List<Takim>  girilenMetniIcerenleriListele(String kulupIsmi){
+		List<Takim> bulunanList = veriListesi.stream()
+		                                     .filter(takim -> takim.getTakimIsim().toLowerCase().contains(kulupIsmi.toLowerCase()))
+		                                     .toList();
+		bulunanList.stream().map(takim -> takim.getId() + " : " + takim.getTakimIsim())
+		           .forEach(System.out::println);
+//		System.out.println("------- Aranan takim "+ kulupIsmi + " -------");
+//		if (bulunanList.isEmpty()){
+//			System.out.println("Takim Bulunamadi!!");
+//
+//		}
+//		else{
+//			bulunanList.stream().map(takim -> takim.getId() + " : " + takim.getTakimIsim())
+//			           .forEach(System.out::println);
+//		}
+//		System.out.println("-----------------------------------");
+		return bulunanList;
+	}
+	public void takimlarIsimIdList() {
+		veriListesi.stream()
+		           .map(takim -> takim.getId() + " : " + takim.getTakimIsim())
+		           .collect(Collectors.toList())
+		           .forEach(System.out::println);
 	}
 	
 }

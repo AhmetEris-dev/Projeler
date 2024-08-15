@@ -1,7 +1,5 @@
 package com.ahmete.FutbolApp.entities;
-/**
- * yetenekler
- */
+
 
 import com.ahmete.FutbolApp.Databases.FutbolcuDB;
 import com.ahmete.FutbolApp.utility.enums.EMevki;

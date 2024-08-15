@@ -11,34 +11,21 @@ import com.ahmete.FutbolApp.utility.enums.EMevki;
 import com.ahmete.FutbolApp.entities.Futbolcu;
 import com.ahmete.FutbolApp.utility.enums.ERenkler;
 
-
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
-import static com.ahmete.FutbolApp.modules.TakimModule.menu;
 
 
 public class Test {
 	private static FutbolcuDB futbolcuDB = new FutbolcuDB();
-	private static TakimDB takimDB = new TakimDB();
+	private static TakimDB takimDB=new TakimDB();
 	private static LigDB ligDB = new LigDB();
 	private static TakimModule takimModule=new TakimModule();
+	private static Scanner scanner=new Scanner(System.in);
 	public static void main(String[] args) {
-//		DataGenerator.generateTakimlar(takimDB, new LigDB());
-		menu();
-		
-		
-	}
-	
-	
-//		FutbolcuDB futbolcuDB=new FutbolcuDB();
-//
-//
-//		Futbolcu futbolcu=new Futbolcu("ahmet","eris",LocalDate.of(1997,9,1),20L,EMevki.KALECI,futbolcuDB);
-////		System.out.println(futbolcu);
-//
-//
+////		DataGenerator.generateTakimlar(takimDB, new LigDB());
+////		menu();
 //		Takim takim=new Takim("asdsadasd",ERenkler.KIRMIZI_SARI,"asdasd","sadasd",takimDB);
 //		Takim takim1=new Takim("asdsadasd",ERenkler.KIRMIZI_SARI,"asdasd","sadasd",takimDB);
 //		Takim takim2=new Takim("asdsadasd",ERenkler.KIRMIZI_SARI,"asdasd","sadasd",takimDB);
@@ -51,7 +38,20 @@ public class Test {
 //		List<Takim> takimList = takimDB.renklereGoreTakimBul(ERenkler.KIRMIZI_SARI);
 //		System.out.println(takimList);
 //
-//
+		DataGenerator.generateTakimlar(takimDB,ligDB);
+		TakimModule.takimModule(takimDB,futbolcuDB,ligDB);
+	}
+	
+	
+	
+
+
+	
+
+
+	
+
+
 //		menu();
 //
 //
@@ -82,10 +82,10 @@ public class Test {
 //			}
 //		}
 //	}
-//
-//	public static void tumkulupleriListele() {
-//		List<Takim> takimList=takimDB.findAll();
-//		takimList.forEach(System.out::println);
-//	}
+
+	public static void tumkulupleriListele() {
+		List<Takim> takimList=takimDB.findAll();
+		takimList.forEach(System.out::println);
+	}
 	
 }

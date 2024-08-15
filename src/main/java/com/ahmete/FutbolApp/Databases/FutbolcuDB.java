@@ -34,4 +34,9 @@ public class FutbolcuDB extends DataBaseManager<Futbolcu> {
 	public boolean futbolcuSil(int id){
 		return veriListesi.removeIf(futbolcu -> futbolcu.getId()==id);
 	}
+	public List<Futbolcu> takimIdyeGoreFutbolcuBul(Integer takimId){
+		return veriListesi.stream()
+		                  .filter(futbolcu -> futbolcu.getTakimID().equals(takimId))
+		                  .collect(Collectors.toList());
+	}
 }

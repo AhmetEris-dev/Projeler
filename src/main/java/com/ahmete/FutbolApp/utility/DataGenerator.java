@@ -55,9 +55,11 @@ public class DataGenerator {
 				                                     random.nextInt(1, 31)));
 				futbolcu.setTakimID(takimID);
 			}
+			takimID++;
 		}
-		takimID++;
+		
 	}
+	
 	// TODO menajeri enttiy olarak yap
 	public static void generateTakimlar(TakimDB takimDB, LigDB ligDB) {
 		Takim takim1 = new Takim("Galatasaray", ERenkler.KIRMIZI_SARI, "Dursun Özbek", "1905", takimDB);

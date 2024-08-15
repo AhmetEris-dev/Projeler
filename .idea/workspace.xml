@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1dadcbb1-7209-4709-a110-96fbf0d79126" name="Changes" comment="sınıflar oluşturuldu databasemanaer optional olarak düzenlendi">
+    <list default="true" id="1dadcbb1-7209-4709-a110-96fbf0d79126" name="Changes" comment="second commit">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/utility/DataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/utility/DataGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/Databases/TakimDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/Databases/TakimDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/modules/TakimModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/modules/TakimModule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,8 +41,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -72,22 +74,22 @@
     <option name="showLibraryContents" value="true" />
     <option name="showScratchesAndConsoles" value="false" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.KulupModule.executor": "Run",
-    "Application.Test.executor": "Run",
-    "Gradle.FutbolApp [:Test.main()].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/intellij/03_StreamApi/StreamApi",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.KulupModule.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Test.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.FutbolApp [:Test.main()].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/intellij/03_StreamApi/StreamApi&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\intellij\Projeler\FutbolApp\src\main\java\com\ahmete" />
@@ -195,12 +197,29 @@
       <option name="project" value="LOCAL" />
       <updated>1723667962756</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="sınıflar oluşturuldu databasemanaer optional olarak düzenlendi">
+      <option name="closed" value="true" />
+      <created>1723718278973</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1723718278973</updated>
+    </task>
+    <task id="LOCAL-00009" summary="second commit">
+      <option name="closed" value="true" />
+      <created>1723723362811</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1723723362811</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="firs commit" />
     <MESSAGE value="sınıflar oluşturuldu databasemanaer optional olarak düzenlendi" />
-    <option name="LAST_COMMIT_MESSAGE" value="sınıflar oluşturuldu databasemanaer optional olarak düzenlendi" />
+    <MESSAGE value="second commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="second commit" />
   </component>
 </project>

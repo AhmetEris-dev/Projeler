@@ -9,10 +9,11 @@ import java.util.List;
 
 public class Lig extends BaseEntitiy {
 	static int ligIDCount = 0;
-	//alperen hocaya hashmap ile olurmu sor
 	
 	private String ligIsmi;
 	private List<Takim> takimList;
+	private List<Integer> takimID;
+	private List<Integer> takimPuan;
 	
 	
 	public Lig(LigDB ligDB) {
@@ -26,6 +27,7 @@ public class Lig extends BaseEntitiy {
 		takimList=new ArrayList<>();
 		ligDB.save(this);
 	}
+	
 	
 	public static int getLigIDCount() {
 		return ligIDCount;

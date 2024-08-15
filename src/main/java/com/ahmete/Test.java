@@ -1,23 +1,15 @@
 package com.ahmete;
 
 import com.ahmete.FutbolApp.Databases.FutbolcuDB;
-import com.ahmete.FutbolApp.Databases.LigDB;
-import com.ahmete.FutbolApp.Databases.MusabakaDB;
 import com.ahmete.FutbolApp.Databases.TakimDB;
-import com.ahmete.FutbolApp.entities.Lig;
-import com.ahmete.FutbolApp.entities.Musabaka;
 import com.ahmete.FutbolApp.entities.Takim;
-import com.ahmete.FutbolApp.utility.DataGenerator;
 import com.ahmete.FutbolApp.utility.enums.EMevki;
 import com.ahmete.FutbolApp.entities.Futbolcu;
 import com.ahmete.FutbolApp.utility.enums.ERenkler;
 
-import javax.swing.plaf.synth.SynthOptionPaneUI;
-import java.sql.SQLOutput;
+
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 import java.util.Scanner;
 
 
@@ -28,7 +20,7 @@ public class Test {
 		FutbolcuDB futbolcuDB=new FutbolcuDB();
 	
 		
-		Futbolcu futbolcu=new Futbolcu("ahmet","eris",LocalDate.of(1997,9,1),"20m",EMevki.KALECI,futbolcuDB);
+		Futbolcu futbolcu=new Futbolcu("ahmet","eris",LocalDate.of(1997,9,1),20L,EMevki.KALECI,futbolcuDB);
 //		System.out.println(futbolcu);
 		
 		

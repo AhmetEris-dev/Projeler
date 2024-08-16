@@ -17,8 +17,9 @@ public class FileIOReader {
 	private static final File dosya =new File("C:\\FutbolAPPDatabase");
 	
 	public static void futbolcuDosyasiniOku(FutbolcuDB futbolcuDB){
-		File inputFile=new File(dosya,"futbolcuDB.bin");
-		try(ObjectInputStream ois=new ObjectInputStream(new FileInputStream(inputFile))) {
+		
+		try(ObjectInputStream ois=
+				    new ObjectInputStream(new FileInputStream("C:\\FutbolAPPDatabase\\futbolcuDB.bin"))) {
 		futbolcuDB.saveAll((List<Futbolcu>) ois.readObject());
 		}
 	

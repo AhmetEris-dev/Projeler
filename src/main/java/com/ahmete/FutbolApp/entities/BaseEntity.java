@@ -1,6 +1,8 @@
 package com.ahmete.FutbolApp.entities;
 
-public class BaseEntity {
+import java.io.Serializable;
+
+public class BaseEntity implements Serializable {
 	
 	protected int id;
 	

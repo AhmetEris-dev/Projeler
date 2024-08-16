@@ -12,6 +12,7 @@ public class Takim extends BaseEntity {
 	private ERenkler renkler;
 //	private int menajerID=-1;
 	
+	
 	public Takim(String takimIsim, ERenkler renkler, String baskanIsmi, String kurulusTarihi,TakimDB takimDB) {
 		this.takimIsim = takimIsim;
 		this.renkler = renkler;
@@ -19,6 +20,8 @@ public class Takim extends BaseEntity {
 		this.kurulusTarihi = kurulusTarihi;
 		this.id=++takimIdCount;
 		takimDB.save(this);
+		
+		
 	}
 	
 	public Takim(TakimDB takimDB) {

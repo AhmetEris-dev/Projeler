@@ -1,8 +1,10 @@
 package com.ahmete.FutbolApp.entities;
 
+import com.ahmete.FutbolApp.Databases.MenajerDB;
+
 import java.time.LocalDate;
 
-public class Manajer extends BaseEntity {
+public class Menajer extends BaseEntity {
 	static int manajerIDCount;
 	
 	private String isim;
@@ -11,10 +13,14 @@ public class Manajer extends BaseEntity {
 	private LocalDate dogumTarihi;
 	private int takimID=-1;
 	
-	public Manajer(String isim, String soyIsim, LocalDate dogumTarihi) {
+	public Menajer(LocalDate dogumTarihi, String isim, String soyIsim, int takimID, MenajerDB menajerDB) {
+		this.dogumTarihi = dogumTarihi;
 		this.isim = isim;
 		this.soyIsim = soyIsim;
-		this.dogumTarihi = dogumTarihi;
+		this.takimID = takimID;
+		this.id=manajerIDCount;
+		menajerDB.save(this);
+		
 	}
 	
 	public static int getManajerIDCount() {
@@ -22,7 +28,7 @@ public class Manajer extends BaseEntity {
 	}
 	
 	public static void setManajerIDCount(int manajerIDCount) {
-		Manajer.manajerIDCount = manajerIDCount;
+		Menajer.manajerIDCount = manajerIDCount;
 	}
 	
 	public String getIsim() {
@@ -59,6 +65,6 @@ public class Manajer extends BaseEntity {
 	
 	@Override
 	public String toString() {
-		return "Manajer{" + "isim='" + getIsim() + '\'' + ", soyIsim='" + getSoyIsim() + '\''  + ", dogumTarihi=" + getDogumTarihi() + ", id=" + getId() + '}';
+		return "Menajer{" + "dogumTarihi=" + getDogumTarihi() + ", isim='" + getIsim() + '\'' + ", soyIsim='" + getSoyIsim() + '\'' + ", takimID=" + getTakimID() + ", id=" + getId() + '}';
 	}
 }

@@ -2,9 +2,11 @@ package com.ahmete.FutbolApp.utility;
 
 import com.ahmete.FutbolApp.Databases.FutbolcuDB;
 import com.ahmete.FutbolApp.Databases.LigDB;
+import com.ahmete.FutbolApp.Databases.MenajerDB;
 import com.ahmete.FutbolApp.Databases.TakimDB;
 import com.ahmete.FutbolApp.entities.Futbolcu;
 import com.ahmete.FutbolApp.entities.Lig;
+import com.ahmete.FutbolApp.entities.Menajer;
 import com.ahmete.FutbolApp.entities.Takim;
 import com.ahmete.FutbolApp.utility.enums.EMevki;
 import com.ahmete.FutbolApp.utility.enums.ERenkler;
@@ -14,6 +16,14 @@ import java.util.List;
 import java.util.Random;
 
 public class DataGenerator {
+	
+	public static void generateData(FutbolcuDB futbolcuDB,TakimDB takimDB,LigDB ligDB,MenajerDB menajerDB){
+		generateManajer(menajerDB);
+		generateTakimlar(takimDB,ligDB);
+		rastgeleFutbolcuUret(futbolcuDB);
+	}
+	
+	
 	private static final String[] ISIM =
 			{"Ahmet", "Mehmet", "Ali", "Anıl", "Hasan", "Murat", "Kemal", "İbrahim", "Oğuz", "Emre", "Serkan", "Barış"
 					, "Halil", "Berk", "Kaan", "Sinan", "Erdem", "Hakan", "Cihan", "Levent", "Rıza", "Volkan", "Arda",
@@ -52,7 +62,7 @@ public class DataGenerator {
 				futbolcu.setSoyIsim(SOYISIM[random.nextInt(0, SOYISIM.length)]);
 				futbolcu.setBonservisBedeli(random.nextLong(100_000, 5_000_000));
 				futbolcu.setDogumTarihi(LocalDate.of(random.nextInt(1980, 2005), random.nextInt(1, 13),
-				                                     random.nextInt(1, 31)));
+				                                     random.nextInt(1, 28)));
 				futbolcu.setTakimID(takimID);
 			}
 			takimID++;
@@ -87,6 +97,28 @@ public class DataGenerator {
 		                .addAll(List.of(takim1.getId(), takim2.getId(), takim3.getId(), takim4.getId(), takim5.getId(), takim6.getId(), takim7.getId(), takim8.getId(), takim9.getId(),
 		                                takim10.getId(), takim11.getId(), takim12.getId(), takim13.getId(), takim14.getId(), takim15.getId(), takim16.getId(), takim17.getId(),
 		                                takim18.getId()));
+	}
+	
+	public static void generateManajer(MenajerDB menajerDB){
+		Menajer manajer1 = new Menajer(LocalDate.of(1976, 6, 10), "Okan", "Buruk", 1,menajerDB);
+		Menajer manajer2 = new Menajer(LocalDate.of(1955, 12, 24), "Jorge", "Jesus", 2,menajerDB);
+		Menajer manajer3 = new Menajer(LocalDate.of(1967, 3, 24), "Şenol", "Güneş", 3,menajerDB);
+		Menajer manajer4 = new Menajer(LocalDate.of(1962, 10, 20), "Abdullah", "Avcı", 4,menajerDB);
+		Menajer manajer5 = new Menajer(LocalDate.of(1981, 1, 4), "Emre", "Belözoğlu", 5,menajerDB);
+		Menajer manajer6 = new Menajer(LocalDate.of(1973, 3, 15), "Bülent", "Korkmaz", 6,menajerDB);
+		Menajer manajer7 = new Menajer(LocalDate.of(1964, 3, 23), "Ersun", "Yanal", 7,menajerDB);
+		Menajer manajer8 = new Menajer(LocalDate.of(1974, 8, 16), "İlhan", "Palut", 8,menajerDB);
+		Menajer manajer9 = new Menajer(LocalDate.of(1970, 11, 27), "Rıza", "Çalımbay", 9,menajerDB);
+		Menajer manajer10 = new Menajer(LocalDate.of(1968, 2, 28), "Bülent", "Uygun", 10,menajerDB);
+		Menajer manajer11 = new Menajer(LocalDate.of(1978, 8, 15), "Erol", "Bulut", 11,menajerDB);
+		Menajer manajer12 = new Menajer(LocalDate.of(1981, 1, 4), "Emre", "Belözoğlu", 12,menajerDB);
+		Menajer manajer13 = new Menajer(LocalDate.of(1970, 4, 5), "Çağlar", "Karabıyık", 13,menajerDB);
+		Menajer manajer14 = new Menajer(LocalDate.of(1965, 8, 20), "Yılmaz", "Vural", 14,menajerDB);
+		Menajer manajer15 = new Menajer(LocalDate.of(1980, 10, 27), "Çağdaş", "Atan", 15,menajerDB);
+		Menajer manajer16 = new Menajer(LocalDate.of(1969, 6, 12), "İbrahim", "Üzülmez", 16,menajerDB);
+		Menajer manajer17 = new Menajer(LocalDate.of(1970, 6, 1), "Tamer", "Tuna", 17,menajerDB);
+		Menajer manajer18 = new Menajer(LocalDate.of(1977, 2, 18), "Yücel", "İldiz", 18,menajerDB);
+		
 	}
 	
 }

@@ -6,8 +6,8 @@ import com.ahmete.FutbolApp.Databases.MenajerDB;
 import com.ahmete.FutbolApp.Databases.TakimDB;
 import com.ahmete.FutbolApp.modules.TakimModule;
 import com.ahmete.FutbolApp.utility.DataGenerator;
-
-
+import com.ahmete.FutbolApp.utility.FileIOReader;
+import com.ahmete.FutbolApp.utility.FileIOWriter;
 
 
 public class Test {
@@ -17,9 +17,18 @@ public class Test {
 	private static MenajerDB menajerDB=new MenajerDB();
 	
 	public static void main(String[] args) {
-		DataGenerator.generateData(futbolcuDB,takimDB,ligDB,menajerDB);
+//		DataGenerator.generateData(futbolcuDB,takimDB,ligDB,menajerDB);
+//		FileIOWriter.nesneleriYazdir(futbolcuDB,takimDB,ligDB,menajerDB);
+		FileIOReader.nesneleriOku(futbolcuDB,takimDB,ligDB,menajerDB);
+//		ligDB.findAll().forEach(System.out::println);
+//		FileIOWriter.menajerleriDosyayaYazdir(menajerDB);
+//		FileIOWriter.takimlariDosyayaYazdir(takimDB);
+//		FileIOWriter.futbolculariDosyayaYazdir(futbolcuDB);
+//		FileIOWriter.ligleriDosyayaYazdir(ligDB);
+//
 		starApplication();
 	}
+	
 	public static void starApplication(){
 		int opt =0;
 		do {

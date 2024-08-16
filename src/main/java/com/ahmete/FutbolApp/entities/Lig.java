@@ -2,6 +2,7 @@ package com.ahmete.FutbolApp.entities;
 
 
 import com.ahmete.FutbolApp.Databases.LigDB;
+import com.ahmete.FutbolApp.utility.FileIOWriter;
 import com.ahmete.FutbolApp.utility.enums.EBolge;
 import com.ahmete.FutbolApp.utility.enums.EKume;
 
@@ -32,6 +33,7 @@ public class Lig extends BaseEntity {
 		this.id=++ligIDCount;
 		takimIDList=new ArrayList<>();
 		ligDB.save(this);
+		FileIOWriter.ligleriDosyayaYazdir(ligDB);
 	}
 	
 	public Lig(String ligIsmi, LigDB ligDB) {
@@ -39,6 +41,7 @@ public class Lig extends BaseEntity {
 		takimIDList=new ArrayList<>();
 		this.id=++ligIDCount;
 		ligDB.save(this);
+		FileIOWriter.ligleriDosyayaYazdir(ligDB);
 	}
 	
 	public Lig(String ligIsmi, String sezon, EKume kume, EBolge bolge, LigDB ligDB) {
@@ -46,8 +49,10 @@ public class Lig extends BaseEntity {
 		this.sezon = sezon;
 		this.kume = kume;
 		this.bolge = bolge;
+		this.id=++ligIDCount;
 		takimIDList=new ArrayList<>();
 		ligDB.save(this);
+		FileIOWriter.ligleriDosyayaYazdir(ligDB);
 		
 	}
 	

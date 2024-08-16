@@ -8,6 +8,8 @@ import com.ahmete.FutbolApp.entities.Futbolcu;
 import com.ahmete.FutbolApp.entities.Lig;
 import com.ahmete.FutbolApp.entities.Menajer;
 import com.ahmete.FutbolApp.entities.Takim;
+import com.ahmete.FutbolApp.utility.enums.EBolge;
+import com.ahmete.FutbolApp.utility.enums.EKume;
 import com.ahmete.FutbolApp.utility.enums.EMevki;
 import com.ahmete.FutbolApp.utility.enums.ERenkler;
 
@@ -91,7 +93,7 @@ public class DataGenerator {
 		Takim takim17 = new Takim("Göztepe", ERenkler.ÇİFT_KIRMIZI, "Mehmet Sepil", "1925", takimDB);
 		Takim takim18 = new Takim("Denizlispor", ERenkler.ÇİFT_KIRMIZI, "Ali İpek", "1966", takimDB);
 		
-		Lig turkiyeSuperLigi = new Lig("Türkiye super lig", ligDB);
+		Lig turkiyeSuperLigi = new Lig("Türkiye super lig","sezon1",EKume.SUPER_LIG,EBolge.TURKIYE, ligDB);
 		
 		turkiyeSuperLigi.getTakimIDList()
 		                .addAll(List.of(takim1.getId(), takim2.getId(), takim3.getId(), takim4.getId(), takim5.getId(), takim6.getId(), takim7.getId(), takim8.getId(), takim9.getId(),

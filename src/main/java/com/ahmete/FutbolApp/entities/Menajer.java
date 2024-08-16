@@ -1,6 +1,7 @@
 package com.ahmete.FutbolApp.entities;
 
 import com.ahmete.FutbolApp.Databases.MenajerDB;
+import com.ahmete.FutbolApp.utility.FileIOWriter;
 
 import java.time.LocalDate;
 
@@ -20,6 +21,7 @@ public class Menajer extends BaseEntity {
 		this.takimID = takimID;
 		this.id=manajerIDCount;
 		menajerDB.save(this);
+		FileIOWriter.menajerleriDosyayaYazdir(menajerDB);
 		
 	}
 	

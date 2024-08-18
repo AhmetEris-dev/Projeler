@@ -71,6 +71,7 @@ public class MenajerModule {
 					menajerMenuOpsiyonlari(menajerMenu());
 					break;
 				}
+				
 				case 2: {
 					System.out.println("Ana menuye donuluyor");
 					break;

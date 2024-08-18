@@ -75,6 +75,6 @@ public class Takim extends BaseEntity {
 	
 	@Override
 	public String toString() {
-		return "Takim{" + "takimIsim='" + getTakimIsim() + '\'' + ", baskanIsmi='" + getBaskanIsmi() + '\'' + ", teknikDirektor='" + '\'' + ", kurulusTarihi='" + getKurulusTarihi() + '\'' + ", puan=" + ", renkler=" + getRenkler() + ", id=" + getId() + '}';
+		return "Takim{" + "takimIsim='" + getTakimIsim() + '\'' + ", baskanIsmi='" + getBaskanIsmi() + '\''  + '\'' + ", kurulusTarihi='" + getKurulusTarihi() + '\''  + ", renkler=" + getRenkler() + ", id=" + getId() + '}';
 	}
 }

@@ -4,15 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1dadcbb1-7209-4709-a110-96fbf0d79126" name="Changes" comment="yeni Enumlar eklendi FielIOReader ve FielIOWriter sınıfları yazıldı">
-      <change afterPath="$PROJECT_DIR$/futbolcular.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ligler.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/menajerler.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/takimlar.bin" afterDir="false" />
+    <list default="true" id="1dadcbb1-7209-4709-a110-96fbf0d79126" name="Changes" comment="yFielIOReader ve FielIOWriter sınıfları düzenlendi">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/modules/MenajerModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/testler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/BaseEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/utility/FileIOReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/utility/FileIOReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/utility/FileIOWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/utility/FileIOWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/Databases/MenajerDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/Databases/MenajerDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/Menajer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/Menajer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/Takim.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/Takim.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/modules/ManejerModule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/utility/DataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/utility/DataGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -125,7 +125,7 @@
       <module name="FutbolApp.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ahmete.*" />
+          <option name="PATTERN" value="com.ahmete.Test" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -253,7 +253,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723830656032</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="yFielIOReader ve FielIOWriter sınıfları düzenlendi">
+      <option name="closed" value="true" />
+      <created>1723837492234</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1723837492234</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -263,6 +271,7 @@
     <MESSAGE value="second commit" />
     <MESSAGE value="takim module oluşturuldu" />
     <MESSAGE value="yeni Enumlar eklendi FielIOReader ve FielIOWriter sınıfları yazıldı" />
-    <option name="LAST_COMMIT_MESSAGE" value="yeni Enumlar eklendi FielIOReader ve FielIOWriter sınıfları yazıldı" />
+    <MESSAGE value="yFielIOReader ve FielIOWriter sınıfları düzenlendi" />
+    <option name="LAST_COMMIT_MESSAGE" value="yFielIOReader ve FielIOWriter sınıfları düzenlendi" />
   </component>
 </project>

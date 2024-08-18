@@ -70,5 +70,11 @@ public class TakimDB extends DataBaseManager<Takim> {
 		           .collect(Collectors.toList())
 		           .forEach(System.out::println);
 	}
+	public void menajerinTakimIdsineGoreTakimBul(int takimid){
+		Optional<Takim> bulunantakim=veriListesi.stream()
+				.filter(takim -> takim.getId()==takimid)
+				.findFirst();
+		System.out.println(bulunantakim.get());
+	}
 	
 }

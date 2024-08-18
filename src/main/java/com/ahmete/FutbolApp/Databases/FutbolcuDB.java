@@ -39,4 +39,10 @@ public class FutbolcuDB extends DataBaseManager<Futbolcu> {
 		                  .filter(futbolcu -> futbolcu.getTakimID().equals(takimId))
 		                  .collect(Collectors.toList());
 	}
+	
+	public List<Futbolcu> takimIdyeGoreFutbolculariListele(int takimId) {
+		return veriListesi.stream()
+				.filter(futbolcu -> futbolcu.getTakimID().equals(takimId))
+				.collect(Collectors.toList());
+	}
 }

@@ -12,4 +12,8 @@ public class MenajerDB extends DataBaseManager<Menajer> {
 				.filter(menajer -> menajer.getId()==id&& menajer.getSifre().equals(sifre))
 				.findFirst();
 	}
+	
+	public void menajerinTakimIdSineGoreTakimBul(){
+	
+	}
 }

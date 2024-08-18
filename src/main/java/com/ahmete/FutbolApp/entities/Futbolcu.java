@@ -91,6 +91,10 @@ public class Futbolcu extends BaseEntity {
 		this.takimID = takimID;
 	}
 	
+	
+	public String toStringOzet() {
+		return "Futbolcu{" + "id=" + getId() + ", isim='" + getIsim() + '\'' + ", soyIsim='" + getSoyIsim() + '\'' + '}';
+	}
 	@Override
 	public String toString() {
 		return "Futbolcu{" + "isim='" + getIsim() + '\'' + ", soyIsim='" + getSoyIsim() + '\'' + ", dogumTarihi=" + getDogumTarihi() + ", bonservisBedeli='" + getBonservisBedeli() + '\'' + ", mevki=" + getMevki() + ", takimID=" + getTakimID() + ", id=" + getId() + '}';

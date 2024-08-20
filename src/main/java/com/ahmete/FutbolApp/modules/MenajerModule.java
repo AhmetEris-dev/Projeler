@@ -6,7 +6,6 @@ import com.ahmete.FutbolApp.Databases.TakimDB;
 import com.ahmete.FutbolApp.entities.Futbolcu;
 import com.ahmete.FutbolApp.entities.Menajer;
 
-
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
@@ -86,6 +85,7 @@ public class MenajerModule {
 	}
 	
 	private static int menajerMenu() {
+		
 		System.out.println("-----Menajer Menu-----");
 		System.out.println("1-Takimimin detaylarını goruntuleyin");
 		System.out.println("2-Takimimin futbolcularımı goruntuleyin");
@@ -102,15 +102,18 @@ public class MenajerModule {
 		switch (opt) {
 			case 1: {
 				kulubumunDetaylariniGoruntule();
+				menajerGirisMenuOpsiyonlari(menajerMenu());
 				break;
 			}
 			case 2: {
 				kulubumunFutbolculariniGoruntule();
+				menajerGirisMenuOpsiyonlari(menajerMenu());
 				break;
 			}
 			case 3: {
 				takimlerinOzetBilgileriniGoruntule();
 				takimIdyeGoreFutbolcularOzetBilgi();
+				menajerGirisMenuOpsiyonlari(menajerMenu());
 				break;
 			}
 			case 0: {

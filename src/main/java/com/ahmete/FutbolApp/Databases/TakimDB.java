@@ -52,16 +52,6 @@ public class TakimDB extends DataBaseManager<Takim> {
 		                                     .toList();
 		bulunanList.stream().map(takim -> takim.getId() + " : " + takim.getTakimIsim());
 		
-//		System.out.println("------- Aranan takim "+ kulupIsmi + " -------");
-//		if (bulunanList.isEmpty()){
-//			System.out.println("Takim Bulunamadi!!");
-//
-//		}
-//		else{
-//			bulunanList.stream().map(takim -> takim.getId() + " : " + takim.getTakimIsim())
-//			           .forEach(System.out::println);
-//		}
-//		System.out.println("-----------------------------------");
 		return bulunanList;
 	}
 	public void takimlarIsimIdList() {

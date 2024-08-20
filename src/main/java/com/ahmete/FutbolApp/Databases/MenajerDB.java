@@ -13,7 +13,4 @@ public class MenajerDB extends DataBaseManager<Menajer> {
 				.findFirst();
 	}
 	
-	public void menajerinTakimIdSineGoreTakimBul(){
-	
-	}
 }

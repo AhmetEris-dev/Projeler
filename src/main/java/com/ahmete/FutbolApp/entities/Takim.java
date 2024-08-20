@@ -4,6 +4,8 @@ import com.ahmete.FutbolApp.Databases.TakimDB;
 import com.ahmete.FutbolApp.utility.FileIOWriter;
 import com.ahmete.FutbolApp.utility.enums.ERenkler;
 
+import java.util.List;
+
 public class Takim extends BaseEntity {
 	static int takimIdCount = 0;
 	

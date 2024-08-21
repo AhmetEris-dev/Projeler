@@ -1,9 +1,6 @@
 package com.ahmete;
 
-import com.ahmete.FutbolApp.Databases.FutbolcuDB;
-import com.ahmete.FutbolApp.Databases.LigDB;
-import com.ahmete.FutbolApp.Databases.MenajerDB;
-import com.ahmete.FutbolApp.Databases.TakimDB;
+import com.ahmete.FutbolApp.Databases.*;
 import com.ahmete.FutbolApp.entities.Musabaka;
 import com.ahmete.FutbolApp.modules.MenajerModule;
 import com.ahmete.FutbolApp.modules.TakimModule;
@@ -25,23 +22,24 @@ public class Test {
 	private static TakimDB takimDB=new TakimDB();
 	private static LigDB ligDB = new LigDB();
 	private static MenajerDB menajerDB=new MenajerDB();
+	private static FiksturGeneratorDB fiksturGeneratorDB=new FiksturGeneratorDB();
 	private static Scanner scanner=new Scanner(System.in);
 	
 	
 	public static void main(String[] args) {
 	
 //		DataGenerator.generateData(futbolcuDB, takimDB, ligDB, menajerDB);
-//		FileIOWriter.nesneleriYazdir(futbolcuDB, takimDB, ligDB, menajerDB);
-//		FileIOReader.nesneleriOku(futbolcuDB,takimDB,ligDB,menajerDB);
+//		FileIOWriter.nesneleriYazdir(futbolcuDB, takimDB, ligDB, menajerDB,fiksturGeneratorDB);
+		FileIOReader.nesneleriOku(futbolcuDB,takimDB,ligDB,menajerDB,fiksturGeneratorDB);
 //
 //
-//		startApplication();
-		List<String> takimlar= Arrays.asList("Galatasaray","Fenerbahce","Besiktaş","Trabzon","Başakşehir","Alanyaspor","Antalyaspor","Konyaspor","SivasSspor","Caykurspor","Gaziantep ck","İstanbulun başakşehiri bence olmamaı","MGWX Ankaragucu","Genclerbirliği","Kayserispor","Yeni malatyaspor","Göztepe","Denizlispor","Anilözogli spor(pendik)");
-		
-		LocalDate sezonBaslangic= LocalDate.of(2024,8,20);
-		FiksturGenerator fiksturGenerator=new FiksturGenerator(new ArrayList<>(takimlar),sezonBaslangic);
-		fiksturGenerator.generatefikstur();
-		fiksturGenerator.fiksturuYazdir();
+		startApplication();
+//		List<String> takimlar= Arrays.asList("Galatasaray","Fenerbahce","Besiktaş","Trabzon","Başakşehir","Alanyaspor","Antalyaspor","Konyaspor","SivasSspor","Caykurspor","Gaziantep ck","İstanbulun başakşehiri bence olmamaı","MGWX Ankaragucu","Genclerbirliği","Kayserispor","Yeni malatyaspor","Göztepe","Denizlispor","Anilözogli spor(pendik)");
+//
+//		LocalDate sezonBaslangic= LocalDate.of(2024,8,20);
+//		FiksturGenerator fiksturGenerator=new FiksturGenerator(new ArrayList<>(takimlar),sezonBaslangic);
+//		fiksturGenerator.generatefikstur();
+//		fiksturGenerator.fiksturuYazdir();
 		
 	}
 
@@ -56,6 +54,7 @@ public class Test {
 		System.out.println("### Futbol App Ana Menu ###");
 		System.out.println("1- Menajer Islemleri");
 		System.out.println("2- Takim Islemleri");
+		System.out.println("3- Fiksturu goruntule");
 		System.out.println("0- Cikis");
 		System.out.println("Secimiz: ");
 		int opt = scanner.nextInt();scanner.nextLine();
@@ -70,6 +69,10 @@ public class Test {
 			}
 			case 2: {
 				TakimModule.takimModule(takimDB,futbolcuDB,ligDB);
+				break;
+			}
+			case 3:{
+				FiksturGenerator.fiksturuYazdir();
 				break;
 			}
 			case 0: {

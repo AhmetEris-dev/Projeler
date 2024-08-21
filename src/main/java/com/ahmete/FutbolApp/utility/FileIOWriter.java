@@ -1,9 +1,6 @@
 package com.ahmete.FutbolApp.utility;
 
-import com.ahmete.FutbolApp.Databases.FutbolcuDB;
-import com.ahmete.FutbolApp.Databases.LigDB;
-import com.ahmete.FutbolApp.Databases.MenajerDB;
-import com.ahmete.FutbolApp.Databases.TakimDB;
+import com.ahmete.FutbolApp.Databases.*;
 
 import java.io.*;
 
@@ -53,11 +50,25 @@ public class FileIOWriter {
 			e.printStackTrace();
 		}
 	}
-	public static void nesneleriYazdir(FutbolcuDB futbolcuDB,TakimDB takimDB,LigDB ligDB,MenajerDB menajerDB){
+	
+	public static void fiksturuDosyayaYazdir(FiksturGeneratorDB fiksturGeneratorDB){
+		File outputFile=new File(dosya,"fiksturDB.bin");
+		try(ObjectOutputStream oss=new ObjectOutputStream(new FileOutputStream(outputFile))) {
+			oss.writeObject(fiksturGeneratorDB.findAll());
+		}
+		
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void nesneleriYazdir(FutbolcuDB futbolcuDB,TakimDB takimDB,LigDB ligDB,MenajerDB menajerDB,
+	                                   FiksturGeneratorDB fiksturGeneratorDB){
 		futbolculariDosyayaYazdir(futbolcuDB);
 		takimlariDosyayaYazdir(takimDB);
 		ligleriDosyayaYazdir(ligDB);
 		menajerleriDosyayaYazdir(menajerDB);
+		fiksturuDosyayaYazdir(fiksturGeneratorDB);
 	}
 	
 	

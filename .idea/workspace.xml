@@ -4,19 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1dadcbb1-7209-4709-a110-96fbf0d79126" name="Changes" comment="menajer module tamamlandı program calışıyor.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/utility/FiksturGenerator.java" afterDir="false" />
+    <list default="true" id="1dadcbb1-7209-4709-a110-96fbf0d79126" name="Changes" comment="futbollApp FiksturGenerator oluşturuldu">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/Databases/FiksturGeneratorDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/Databases/MenajerDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/Databases/MenajerDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/Databases/TakimDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/Databases/TakimDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/Lig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/Lig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/Musabaka.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/Musabaka.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/Takim.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/Takim.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/TransferYonetimi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/modules/MenajerModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/modules/MenajerModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/utility/DataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/utility/DataGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/utility/enums/EKume.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/utility/enums/EKume.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/utility/enums/ERenkler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/utility/enums/ERenkler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/utility/FiksturGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/utility/FiksturGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/utility/FileIOReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/utility/FileIOReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/utility/FileIOWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/utility/FileIOWriter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -95,7 +88,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/intellij/02_CollectionFramework/CollectionFramework",
+    "last_opened_file_path": "C:/intellij/05FilelO/FilelO",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -289,7 +282,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724002775959</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="futbollApp FiksturGenerator oluşturuldu">
+      <option name="closed" value="true" />
+      <created>1724175882090</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1724175882090</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -302,6 +303,7 @@
     <MESSAGE value="yFielIOReader ve FielIOWriter sınıfları düzenlendi" />
     <MESSAGE value="menejarModule oluşturulma aşamasında" />
     <MESSAGE value="menajer module tamamlandı program calışıyor." />
-    <option name="LAST_COMMIT_MESSAGE" value="menajer module tamamlandı program calışıyor." />
+    <MESSAGE value="futbollApp FiksturGenerator oluşturuldu" />
+    <option name="LAST_COMMIT_MESSAGE" value="futbollApp FiksturGenerator oluşturuldu" />
   </component>
 </project>

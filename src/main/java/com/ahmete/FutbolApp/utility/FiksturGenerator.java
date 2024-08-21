@@ -1,5 +1,7 @@
 package com.ahmete.FutbolApp.utility;
 
+import com.ahmete.FutbolApp.Databases.*;
+import com.ahmete.FutbolApp.entities.BaseEntity;
 import com.ahmete.FutbolApp.entities.Musabaka;
 
 
@@ -7,10 +9,10 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.*;
 
-public class FiksturGenerator {
+public class FiksturGenerator extends BaseEntity {
 	private List<String> takimIsimleri;
 	private List<DayOfWeek> gunler = Arrays.asList(DayOfWeek.FRIDAY,DayOfWeek.SATURDAY,DayOfWeek.SUNDAY,DayOfWeek.MONDAY);
-	private List<List<Musabaka>> fikstur;
+	private static List<List<Musabaka>> fikstur;
 	private LocalDate sezonbaslangic;
 	
 	
@@ -30,11 +32,12 @@ public class FiksturGenerator {
 			takimIsimleri.add("BAY");
 			takimSayisi++;
 		}
+		//20 takım var
 		for (int hafta = 0; hafta < takimSayisi - 1; hafta++) {
 			List<Musabaka> musabakalar = new ArrayList<>();
 			for (int i = 0; i < takimSayisi / 2; i++) {
-				String evSahibi = takimIsimleri.get(i);
-				String misafirTakim = takimIsimleri.get(takimSayisi - 1 - i);
+				String evSahibi = takimIsimleri.get(i); //galatasay kendi / deplasman
+				String misafirTakim = takimIsimleri.get(takimSayisi - 1 - i);//fenerbahce deplansa /kendi
 				musabakalar.add(new Musabaka(evSahibi, misafirTakim));
 				
 			}
@@ -64,22 +67,18 @@ public class FiksturGenerator {
 				LocalDate musabakaTarihi=sezonbaslangic.plusWeeks(hafta).with(gun);
 				musabaka.setMusabakaTarihi(musabakaTarihi);
 			}
-			
 		}
-		
-		
 	}
 	
-	public void fiksturuYazdir(){
+	public static void fiksturuYazdir(){
 		int haftaNumarasi=1;
 		for (List<Musabaka> musabakalar:fikstur){
-			System.out.println("Hafta "+haftaNumarasi++);
+			System.out.println("Hafta "+haftaNumarasi++);// hafta 1, hafta 2 ,hafta 3
 			for (Musabaka musabaka:musabakalar){
-				System.out.println(musabaka.toStringFikstur());
+				System.out.println(musabaka.toStringFikstur()); //galatasar vs fenerbahce // trabzon vs beşiktaş
 			}
 			System.out.println();
 		}
 	}
-	
 	
 }

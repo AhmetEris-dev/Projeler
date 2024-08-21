@@ -16,13 +16,18 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ *
+ * 1 kaydedilen musabakaları tarihe göre sırala ve console cıktısı al
+ * 2 musabakaları kaydet
+ *
+ */
 
 public class Test {
 	private static FutbolcuDB futbolcuDB = new FutbolcuDB();
 	private static TakimDB takimDB=new TakimDB();
 	private static LigDB ligDB = new LigDB();
 	private static MenajerDB menajerDB=new MenajerDB();
-	private static FiksturGeneratorDB fiksturGeneratorDB=new FiksturGeneratorDB();
 	private static Scanner scanner=new Scanner(System.in);
 	
 	
@@ -30,16 +35,16 @@ public class Test {
 	
 //		DataGenerator.generateData(futbolcuDB, takimDB, ligDB, menajerDB);
 //		FileIOWriter.nesneleriYazdir(futbolcuDB, takimDB, ligDB, menajerDB,fiksturGeneratorDB);
-		FileIOReader.nesneleriOku(futbolcuDB,takimDB,ligDB,menajerDB,fiksturGeneratorDB);
-//
-//
-		startApplication();
-//		List<String> takimlar= Arrays.asList("Galatasaray","Fenerbahce","Besiktaş","Trabzon","Başakşehir","Alanyaspor","Antalyaspor","Konyaspor","SivasSspor","Caykurspor","Gaziantep ck","İstanbulun başakşehiri bence olmamaı","MGWX Ankaragucu","Genclerbirliği","Kayserispor","Yeni malatyaspor","Göztepe","Denizlispor","Anilözogli spor(pendik)");
-//
-//		LocalDate sezonBaslangic= LocalDate.of(2024,8,20);
-//		FiksturGenerator fiksturGenerator=new FiksturGenerator(new ArrayList<>(takimlar),sezonBaslangic);
-//		fiksturGenerator.generatefikstur();
-//		fiksturGenerator.fiksturuYazdir();
+//		FileIOReader.nesneleriOku(futbolcuDB,takimDB,ligDB,menajerDB);
+////
+////
+//		startApplication();
+		List<String> takimlar= Arrays.asList("Galatasaray","Fenerbahce","Besiktaş","Trabzon","Başakşehir","Alanyaspor","Antalyaspor","Konyaspor","SivasSspor","Caykurspor","Gaziantep ck","İstanbulun başakşehiri bence olmamaı","MGWX Ankaragucu","Genclerbirliği","Kayserispor","Yeni malatyaspor","Göztepe","Denizlispor","Anilözogli spor(pendik)");
+
+		LocalDate sezonBaslangic= LocalDate.of(2024,8,20);
+		FiksturGenerator fiksturGenerator=new FiksturGenerator(new ArrayList<>(takimlar),sezonBaslangic);
+		fiksturGenerator.generatefikstur();
+		fiksturGenerator.fiksturuYazdir();
 		
 	}
 
@@ -72,7 +77,7 @@ public class Test {
 				break;
 			}
 			case 3:{
-				FiksturGenerator.fiksturuYazdir();
+				
 				break;
 			}
 			case 0: {

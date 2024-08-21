@@ -4,16 +4,16 @@ import com.ahmete.FutbolApp.Databases.FutbolcuDB;
 import com.ahmete.FutbolApp.Databases.LigDB;
 import com.ahmete.FutbolApp.Databases.MenajerDB;
 import com.ahmete.FutbolApp.Databases.TakimDB;
-import com.ahmete.FutbolApp.entities.Futbolcu;
-import com.ahmete.FutbolApp.entities.Lig;
-import com.ahmete.FutbolApp.entities.Menajer;
-import com.ahmete.FutbolApp.entities.Takim;
+import com.ahmete.FutbolApp.entities.*;
 import com.ahmete.FutbolApp.utility.enums.EBolge;
 import com.ahmete.FutbolApp.utility.enums.EKume;
 import com.ahmete.FutbolApp.utility.enums.EMevki;
 import com.ahmete.FutbolApp.utility.enums.ERenkler;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -133,6 +133,5 @@ public class DataGenerator {
 		Menajer manajer18 = new Menajer(LocalDate.of(1977, 2, 18), "Yücel", "İldiz", sifre, 18, menajerDB);
 		Menajer menajer19 = new Menajer(LocalDate.of(1974, 1, 21), "İsmet", "Taşdemir", sifre, 19, menajerDB);
 	}
-	
 	
 }

@@ -58,22 +58,21 @@ public class FileIOReader {
 		}
 	}
 	
-	public static void fiksturDosyasiniOku(FiksturGeneratorDB fiksturGeneratorDB){
-		File inputFile=new File(dosya,"fiksturDB.bin");
-		try (ObjectInputStream ois =new ObjectInputStream(new FileInputStream(inputFile))){
-			fiksturGeneratorDB.saveAll((List<FiksturGenerator>) ois.readObject());
-		}
-		
-		catch (IOException | ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
-	public static void nesneleriOku(FutbolcuDB futbolcuDB, TakimDB takimDB, LigDB ligDB, MenajerDB menajerDB,
-	                                FiksturGeneratorDB fiksturGeneratorDB){
+//	public static void fiksturDosyasiniOku(FiksturGeneratorDB fiksturGeneratorDB){
+//		File inputFile=new File(dosya,"fiksturDB.bin");
+//		try (ObjectInputStream ois =new ObjectInputStream(new FileInputStream(inputFile))){
+//			fiksturGeneratorDB.saveAll((List<FiksturGenerator>) ois.readObject());
+//		}
+//
+//		catch (IOException | ClassNotFoundException e) {
+//			e.printStackTrace();
+//		}
+//	}
+	public static void nesneleriOku(FutbolcuDB futbolcuDB, TakimDB takimDB, LigDB ligDB, MenajerDB menajerDB){
 		futbolcuDosyasiniOku(futbolcuDB);
 		takimDosyasiniOku(takimDB);
 		ligDosyasiniOku(ligDB);
 		menajerDosyasiniOku(menajerDB);
-		fiksturDosyasiniOku(fiksturGeneratorDB);
+		
 	}
 }

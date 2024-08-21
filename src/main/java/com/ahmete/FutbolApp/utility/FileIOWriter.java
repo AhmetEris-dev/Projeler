@@ -51,24 +51,23 @@ public class FileIOWriter {
 		}
 	}
 	
-	public static void fiksturuDosyayaYazdir(FiksturGeneratorDB fiksturGeneratorDB){
-		File outputFile=new File(dosya,"fiksturDB.bin");
-		try(ObjectOutputStream oss=new ObjectOutputStream(new FileOutputStream(outputFile))) {
-			oss.writeObject(fiksturGeneratorDB.findAll());
-		}
-		
-		catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+//	public static void fiksturuDosyayaYazdir(FiksturGeneratorDB fiksturGeneratorDB){
+//		File outputFile=new File(dosya,"fiksturDB.bin");
+//		try(ObjectOutputStream oss=new ObjectOutputStream(new FileOutputStream(outputFile))) {
+//			oss.writeObject(fiksturGeneratorDB.findAll());
+//		}
+//
+//		catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//	}
 	
-	public static void nesneleriYazdir(FutbolcuDB futbolcuDB,TakimDB takimDB,LigDB ligDB,MenajerDB menajerDB,
-	                                   FiksturGeneratorDB fiksturGeneratorDB){
+	public static void nesneleriYazdir(FutbolcuDB futbolcuDB,TakimDB takimDB,LigDB ligDB,MenajerDB menajerDB){
 		futbolculariDosyayaYazdir(futbolcuDB);
 		takimlariDosyayaYazdir(takimDB);
 		ligleriDosyayaYazdir(ligDB);
 		menajerleriDosyayaYazdir(menajerDB);
-		fiksturuDosyayaYazdir(fiksturGeneratorDB);
+		
 	}
 	
 	

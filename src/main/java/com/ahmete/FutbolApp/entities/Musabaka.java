@@ -7,31 +7,35 @@ import java.time.LocalDateTime;
 
 public class Musabaka extends BaseEntity {
 	static int musabakaIDCOunt=0;
-	private String  evSahibi;
-	private String  misafirTakim;
+	
+	private Integer  evSahibiID;
+	private Integer  misafirTakimID;
 	private String stadyum;
 	private int evSahibiSkor;
 	private int misafirTakimSkor;
 	private String hakemIsmi;
 	private LocalDate musabakaTarihi; //localdate time yap
+	private Integer ligID;
 	//sonradan stadyumID eklenecek
 	
 	
-	public Musabaka(String  evSahibi, String  misafirTakim, String stadyum, int evSahibiSkor, int misafirTakimSkor,
-	                String hakemIsmi, LocalDate musabakaTarihi, MusabakaDB musabakaDB) {
-		this.evSahibi = evSahibi;
-		this.misafirTakim = misafirTakim;
+	public Musabaka(Integer  evSahibiID, Integer  misafirTakimID, String stadyum, int evSahibiSkor,
+	                int misafirTakimSkor,
+	                String hakemIsmi, LocalDate musabakaTarihi,Integer ligID, MusabakaDB musabakaDB) {
+		this.evSahibiID = evSahibiID;
+		this.misafirTakimID = misafirTakimID;
 		this.stadyum = stadyum;
 		this.evSahibiSkor = evSahibiSkor;
 		this.misafirTakimSkor = misafirTakimSkor;
 		this.hakemIsmi = hakemIsmi;
 		this.musabakaTarihi = musabakaTarihi;
+		this.ligID=ligID;
 		musabakaDB.save(this);
 	}
 	
-	public Musabaka(String evSahibi, String misafirTakim) {
-		this.evSahibi=evSahibi;
-		this.misafirTakim=misafirTakim;
+	public Musabaka(Integer evSahibiID, Integer misafirTakimID) {
+		this.evSahibiID=evSahibiID;
+		this.misafirTakimID=misafirTakimID;
 	}
 	
 	
@@ -43,20 +47,20 @@ public class Musabaka extends BaseEntity {
 		Musabaka.musabakaIDCOunt = musabakaIDCOunt;
 	}
 	
-	public String getEvSahibi() {
-		return evSahibi;
+	public Integer getEvSahibi() {
+		return evSahibiID;
 	}
 	
-	public void setEvSahibi(String  evSahibi) {
-		this.evSahibi = evSahibi;
+	public void setEvSahibi(Integer  evSahibiID) {
+		this.evSahibiID = evSahibiID;
 	}
 	
-	public String getMisafirTakim() {
-		return misafirTakim;
+	public Integer getMisafirTakim() {
+		return misafirTakimID;
 	}
 	
-	public void setMisafirTakim(String misafirTakim) {
-		this.misafirTakim = misafirTakim;
+	public void setMisafirTakim(Integer misafirTakim) {
+		this.misafirTakimID = misafirTakimID;
 	}
 	
 	public String getStadyum() {
@@ -104,8 +108,9 @@ public class Musabaka extends BaseEntity {
 		return "Musabaka{" + "evSahibi=" + getEvSahibi()+" VS " + ", misafirTakim=" + getMisafirTakim() + ", " +
 				"musabakaTarihi=" + getMusabakaTarihi() +  '}';
 	}
+	
 	@Override
 	public String toString() {
-		return "Musabaka{" + "evSahibi=" + getEvSahibi() + ", misafirTakim=" + getMisafirTakim() + ", stadyum='" + getStadyum() + '\'' + ", evSahibiSkor=" + getEvSahibiSkor() + ", misafirTakimSkor=" + getMisafirTakimSkor() + ", hakemIsmi='" + getHakemIsmi() + '\'' + ", musabakaTarihi=" + getMusabakaTarihi() + ", id=" + getId() + '}';
+		return "Musabaka{" + "evSahibiID=" + evSahibiID + ", misafirTakimID=" + misafirTakimID + ", stadyum='" + getStadyum() + '\'' + ", evSahibiSkor=" + getEvSahibiSkor() + ", misafirTakimSkor=" + getMisafirTakimSkor() + ", hakemIsmi='" + getHakemIsmi() + '\'' + ", musabakaTarihi=" + getMusabakaTarihi() + ", ligID=" + ligID + ", evSahibi=" + getEvSahibi() + ", misafirTakim=" + getMisafirTakim() + ", id=" + getId() + '}';
 	}
 }

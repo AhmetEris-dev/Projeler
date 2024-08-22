@@ -24,7 +24,7 @@ public class LigModel {
 	public LigModel(Lig lig, List<Takim> takimlar) {
 		this.baslangicTarihi = lig.getBaslangicTarihi();
 		this.bolge = lig.getBolge();
-		this.fikstur = null; // Burada `fikstur` değerini uygun şekilde başlatın
+		this.fikstur = null;
 		this.kume = lig.getKume();
 		this.ligID = lig.getId();
 		this.ligIsmi = lig.getLigIsmi();

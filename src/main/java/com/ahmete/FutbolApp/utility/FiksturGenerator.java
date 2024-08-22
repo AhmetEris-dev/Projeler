@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class FiksturGenerator {
-	private List<Integer> takimIDleri; // Güncellenmiş: Integer ID'ler listesi
+	private List<Integer> takimIDleri;
 	private List<DayOfWeek> gunler;
 	private static Map<Integer, List<Musabaka>> fikstur = new HashMap<>();
 	private LocalDate sezonBaslangic;

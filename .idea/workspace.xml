@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1dadcbb1-7209-4709-a110-96fbf0d79126" name="Changes" comment="futbollApp FiksturGenerator düzenlemeler yapılıyor...">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/Lig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/Lig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/Menajer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/Menajer.java" afterDir="false" />
+    <list default="true" id="1dadcbb1-7209-4709-a110-96fbf0d79126" name="Changes" comment="futbollApp FiksturGenerator düzenlendi&#10;LigModel ve MusabakaModel sınıfları oluşturuldu tamamlandı">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/model/LigModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/model/LigModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/model/MusabakaModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/model/MusabakaModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -337,7 +332,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724337050291</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="futbollApp FiksturGenerator düzenlendi&#10;LigModel ve MusabakaModel sınıfları oluşturuldu tamamlandı">
+      <option name="closed" value="true" />
+      <created>1724350093059</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1724350093059</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -353,6 +356,7 @@
     <MESSAGE value="futbollApp FiksturGenerator oluşturuldu" />
     <MESSAGE value="futbollApp FiksturGenerator düzenlemeler yapıldı" />
     <MESSAGE value="futbollApp FiksturGenerator düzenlemeler yapılıyor..." />
-    <option name="LAST_COMMIT_MESSAGE" value="futbollApp FiksturGenerator düzenlemeler yapılıyor..." />
+    <MESSAGE value="futbollApp FiksturGenerator düzenlendi&#10;LigModel ve MusabakaModel sınıfları oluşturuldu tamamlandı" />
+    <option name="LAST_COMMIT_MESSAGE" value="futbollApp FiksturGenerator düzenlendi&#10;LigModel ve MusabakaModel sınıfları oluşturuldu tamamlandı" />
   </component>
 </project>

@@ -32,6 +32,7 @@ public class Lig extends BaseEntity {
 		
 	}
 	
+	
 	public Lig(String ligIsmi, List<Integer> takimIDList,LigDB ligDB,LocalDate baslangicTarihi) {
 		this.ligIsmi = ligIsmi;
 		this.takimIDList = takimIDList;

@@ -9,6 +9,7 @@ import java.util.List;
 public class Takim extends BaseEntity {
 	static int takimIdCount = 0;
 	
+	private Integer stadyumID;
 	private String takimIsim;
 	private String baskanIsmi;
 	private String kurulusTarihi;
@@ -16,8 +17,9 @@ public class Takim extends BaseEntity {
 //	private int menajerID=-1;
 	
 	
-	public Takim(String takimIsim, ERenkler renkler, String baskanIsmi, String kurulusTarihi,TakimDB takimDB) {
+	public Takim(String takimIsim,Integer stadyumID, ERenkler renkler, String baskanIsmi, String kurulusTarihi,TakimDB takimDB) {
 		this.takimIsim = takimIsim;
+		this.stadyumID=stadyumID;
 		this.renkler = renkler;
 		this.baskanIsmi = baskanIsmi;
 		this.kurulusTarihi = kurulusTarihi;
@@ -37,6 +39,14 @@ public class Takim extends BaseEntity {
 		this.id=++takimIdCount;
 		takimDB.save(this);
 		FileIOWriter.takimlariDosyayaYazdir(takimDB);
+	}
+	
+	public Integer getStadyumID() {
+		return stadyumID;
+	}
+	
+	public void setStadyumID(Integer stadyumID) {
+		this.stadyumID = stadyumID;
 	}
 	
 	public static int getTakimIdCount() {
@@ -84,6 +94,6 @@ public class Takim extends BaseEntity {
 	
 	@Override
 	public String toString() {
-		return "Takim{" + "takimIsim='" + getTakimIsim() + '\'' + ", baskanIsmi='" + getBaskanIsmi() + '\''  + '\'' + ", kurulusTarihi='" + getKurulusTarihi() + '\''  + ", renkler=" + getRenkler() + ", id=" + getId() + '}';
+		return "Takim{" + "baskanIsmi='" + getBaskanIsmi() + '\'' + ", stadyumID=" + getStadyumID() + ", takimIsim='" + getTakimIsim() + '\'' + ", kurulusTarihi='" + getKurulusTarihi() + '\'' + ", renkler=" + getRenkler() + ", id=" + getId() + '}';
 	}
 }

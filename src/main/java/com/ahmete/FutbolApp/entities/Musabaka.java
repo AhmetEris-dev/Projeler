@@ -11,7 +11,7 @@ public class Musabaka extends BaseEntity {
 	
 	private Integer evSahibiID;
 	private Integer misafirTakimID;
-	private String stadyum;
+	private Stadyum stadyum;
 	private int evSahibiSkor;
 	private int misafirTakimSkor;
 	private String hakemIsmi;
@@ -20,7 +20,7 @@ public class Musabaka extends BaseEntity {
 	//sonradan stadyumID eklenecek
 	
 	
-	public Musabaka(Integer evSahibiID, Integer misafirTakimID, String stadyum, int evSahibiSkor, int misafirTakimSkor
+	public Musabaka(Integer evSahibiID, Integer misafirTakimID, Stadyum stadyum, int evSahibiSkor, int misafirTakimSkor
 			, String hakemIsmi, LocalDate musabakaTarihi, Integer ligID, MusabakaDB musabakaDB) {
 		this.evSahibiID = evSahibiID;
 		this.misafirTakimID = misafirTakimID;
@@ -105,11 +105,11 @@ public class Musabaka extends BaseEntity {
 		this.musabakaTarihi = musabakaTarihi;
 	}
 	
-	public String getStadyum() {
+	public Stadyum getStadyum() {
 		return stadyum;
 	}
 	
-	public void setStadyum(String stadyum) {
+	public void setStadyum(Stadyum stadyum) {
 		this.stadyum = stadyum;
 	}
 	

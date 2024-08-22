@@ -1,10 +1,7 @@
 package com.ahmete.FutbolApp.utility;
 
 import com.ahmete.FutbolApp.Databases.*;
-import com.ahmete.FutbolApp.entities.Futbolcu;
-import com.ahmete.FutbolApp.entities.Lig;
-import com.ahmete.FutbolApp.entities.Menajer;
-import com.ahmete.FutbolApp.entities.Takim;
+import com.ahmete.FutbolApp.entities.*;
 
 import java.io.*;
 import java.util.List;
@@ -57,22 +54,25 @@ public class FileIOReader {
 			e.printStackTrace();
 		}
 	}
+	public static void stadyumDosyasiniOku(StadyumDB stadyumDB){
+		File inputFile=new File(dosya,"stadyumDB.bin");
+		try(ObjectInputStream ois=new ObjectInputStream(new FileInputStream(inputFile))) {
+			stadyumDB.saveAll((List<Stadyum>) ois.readObject());
+		}
+		
+		catch (IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
 	
-//	public static void fiksturDosyasiniOku(FiksturGeneratorDB fiksturGeneratorDB){
-//		File inputFile=new File(dosya,"fiksturDB.bin");
-//		try (ObjectInputStream ois =new ObjectInputStream(new FileInputStream(inputFile))){
-//			fiksturGeneratorDB.saveAll((List<FiksturGenerator>) ois.readObject());
-//		}
-//
-//		catch (IOException | ClassNotFoundException e) {
-//			e.printStackTrace();
-//		}
-//	}
-	public static void nesneleriOku(FutbolcuDB futbolcuDB, TakimDB takimDB, LigDB ligDB, MenajerDB menajerDB){
+
+	public static void nesneleriOku(FutbolcuDB futbolcuDB, TakimDB takimDB, LigDB ligDB, MenajerDB menajerDB,
+	                                StadyumDB stadyumDB){
 		futbolcuDosyasiniOku(futbolcuDB);
 		takimDosyasiniOku(takimDB);
 		ligDosyasiniOku(ligDB);
 		menajerDosyasiniOku(menajerDB);
+		stadyumDosyasiniOku(stadyumDB);
 		
 	}
 }

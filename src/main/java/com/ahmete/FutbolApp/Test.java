@@ -2,6 +2,7 @@ package com.ahmete.FutbolApp;
 
 import com.ahmete.FutbolApp.Databases.*;
 import com.ahmete.FutbolApp.entities.Musabaka;
+import com.ahmete.FutbolApp.model.MusabakaModel;
 import com.ahmete.FutbolApp.modules.MenajerModule;
 import com.ahmete.FutbolApp.modules.TakimModule;
 import com.ahmete.FutbolApp.utility.DataGenerator;
@@ -27,29 +28,33 @@ public class Test {
 	private static TakimDB takimDB=new TakimDB();
 	private static LigDB ligDB = new LigDB();
 	private static MenajerDB menajerDB=new MenajerDB();
+	private static StadyumDB stadyumDB=new StadyumDB();
 	private static Scanner scanner=new Scanner(System.in);
+	private static MusabakaDB musabakaDB=new MusabakaDB();
+
 	
 	
 	public static void main(String[] args) {
 
-//		DataGenerator.generateData(futbolcuDB, takimDB, ligDB, menajerDB);
-//		FileIOWriter.nesneleriYazdir(futbolcuDB, takimDB, ligDB, menajerDB,fiksturGeneratorDB);
-//		FileIOReader.nesneleriOku(futbolcuDB,takimDB,ligDB,menajerDB);
-////
-////
+//		DataGenerator.generateData(futbolcuDB, takimDB, ligDB, menajerDB,stadyumDB);
+//		FileIOWriter.nesneleriYazdir(futbolcuDB, takimDB, ligDB, menajerDB,stadyumDB);
+//		FileIOReader.nesneleriOku(futbolcuDB,takimDB,ligDB,menajerDB)
+
+
 //		startApplication();
-		// Takım ID'lerini mutable bir liste ile oluşturuyoruz
+		
 		List<Integer> takimIDleri = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19));
 		LocalDate sezonBaslangic = LocalDate.of(2024, 8, 20); // Sezon başlangıç tarihi
-		
+
 		// FiksturGenerator örneği oluşturuluyor
 		FiksturGenerator fiksturGenerator = new FiksturGenerator(takimIDleri, sezonBaslangic);
 		fiksturGenerator.generateFikstur();
-		
+
 		// Fikstürü yazdır
 		fiksturGenerator.fiksturuYazdir();
-		
-		
+	
+	
+	
 	}
 	
 	public static void startApplication(){

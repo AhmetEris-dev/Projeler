@@ -6,7 +6,7 @@ import com.ahmete.FutbolApp.utility.FileIOWriter;
 import java.time.LocalDate;
 
 public class Menajer extends BaseEntity {
-	static int manajerIDCount;
+	static int manajerIDCount=0;
 	
 	private String isim;
 	private String soyIsim;

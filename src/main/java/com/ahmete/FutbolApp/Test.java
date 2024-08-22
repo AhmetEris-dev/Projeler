@@ -1,7 +1,10 @@
 package com.ahmete.FutbolApp;
 
 import com.ahmete.FutbolApp.Databases.*;
+import com.ahmete.FutbolApp.entities.Lig;
 import com.ahmete.FutbolApp.entities.Musabaka;
+import com.ahmete.FutbolApp.entities.Takim;
+import com.ahmete.FutbolApp.model.LigModel;
 import com.ahmete.FutbolApp.model.MusabakaModel;
 import com.ahmete.FutbolApp.modules.MenajerModule;
 import com.ahmete.FutbolApp.modules.TakimModule;
@@ -11,11 +14,9 @@ import com.ahmete.FutbolApp.utility.FileIOReader;
 import com.ahmete.FutbolApp.utility.FileIOWriter;
 
 
+import java.sql.Array;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  *
@@ -31,6 +32,7 @@ public class Test {
 	private static StadyumDB stadyumDB=new StadyumDB();
 	private static Scanner scanner=new Scanner(System.in);
 	private static MusabakaDB musabakaDB=new MusabakaDB();
+	
 
 	
 	
@@ -46,15 +48,25 @@ public class Test {
 		List<Integer> takimIDleri = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19));
 		LocalDate sezonBaslangic = LocalDate.of(2024, 8, 20); // Sezon başlangıç tarihi
 
-		// FiksturGenerator örneği oluşturuluyor
+	
 		FiksturGenerator fiksturGenerator = new FiksturGenerator(takimIDleri, sezonBaslangic);
 		fiksturGenerator.generateFikstur();
-
-		// Fikstürü yazdır
+		
 		fiksturGenerator.fiksturuYazdir();
-	
-	
-	
+		
+		Takim takim=new Takim("galatasaray",takimDB);
+		Takim takim1=new Takim("fenerbahce",takimDB);
+		Lig lig=new Lig("lig",ligDB);
+		Musabaka musabaka=new Musabaka(1,2);
+		MusabakaModel musabakaModel=new MusabakaModel(takimDB,ligDB,futbolcuDB,stadyumDB,musabaka,lig);
+		musabakaModel.musabakaBilgileriniGoster();
+		
+		List<Takim> takimList= Arrays.asList(takim,takim1);
+		Map<Integer,List<MusabakaModel>> fikstur=new HashMap<>();
+		
+		LigModel ligModel=new LigModel(lig,takimList);
+		ligModel.ligBilgileriniGoster();
+		
 	}
 	
 	public static void startApplication(){
@@ -83,10 +95,6 @@ public class Test {
 			}
 			case 2: {
 				TakimModule.takimModule(takimDB,futbolcuDB,ligDB);
-				break;
-			}
-			case 3:{
-				
 				break;
 			}
 			case 0: {

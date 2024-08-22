@@ -24,6 +24,7 @@ public class Lig extends BaseEntity {
 	
 	
 	
+	
 	public Lig(LigDB ligDB) {
 		this.id=++ligIDCount;
 		takimIDList=new ArrayList<>();

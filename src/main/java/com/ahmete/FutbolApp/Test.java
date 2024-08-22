@@ -1,4 +1,4 @@
-package com.ahmete;
+package com.ahmete.FutbolApp;
 
 import com.ahmete.FutbolApp.Databases.*;
 import com.ahmete.FutbolApp.entities.Musabaka;
@@ -20,7 +20,6 @@ import java.util.Scanner;
  *
  * 1 kaydedilen musabakaları tarihe göre sırala ve console cıktısı al
  * 2 musabakaları kaydet
- *
  */
 
 public class Test {
@@ -32,29 +31,34 @@ public class Test {
 	
 	
 	public static void main(String[] args) {
-	
+
 //		DataGenerator.generateData(futbolcuDB, takimDB, ligDB, menajerDB);
 //		FileIOWriter.nesneleriYazdir(futbolcuDB, takimDB, ligDB, menajerDB,fiksturGeneratorDB);
 //		FileIOReader.nesneleriOku(futbolcuDB,takimDB,ligDB,menajerDB);
 ////
 ////
 //		startApplication();
-		List<String> takimlar= Arrays.asList("Galatasaray","Fenerbahce","Besiktaş","Trabzon","Başakşehir","Alanyaspor","Antalyaspor","Konyaspor","SivasSspor","Caykurspor","Gaziantep ck","İstanbulun başakşehiri bence olmamaı","MGWX Ankaragucu","Genclerbirliği","Kayserispor","Yeni malatyaspor","Göztepe","Denizlispor","Anilözogli spor(pendik)");
-
-		LocalDate sezonBaslangic= LocalDate.of(2024,8,20);
-		FiksturGenerator fiksturGenerator=new FiksturGenerator(new ArrayList<>(takimlar),sezonBaslangic);
-		fiksturGenerator.generatefikstur();
+		// Takım ID'lerini mutable bir liste ile oluşturuyoruz
+		List<Integer> takimIDleri = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19));
+		LocalDate sezonBaslangic = LocalDate.of(2024, 8, 20); // Sezon başlangıç tarihi
+		
+		// FiksturGenerator örneği oluşturuluyor
+		FiksturGenerator fiksturGenerator = new FiksturGenerator(takimIDleri, sezonBaslangic);
+		fiksturGenerator.generateFikstur();
+		
+		// Fikstürü yazdır
 		fiksturGenerator.fiksturuYazdir();
 		
+		
 	}
-
+	
 	public static void startApplication(){
 		int opt =0;
 		do {
 			opt = futbolAppMenuOpsiyonlari(futbolAppMenu());
 		}while (opt!=0);
 	}
-
+	
 	private static int futbolAppMenu(){
 		System.out.println("### Futbol App Ana Menu ###");
 		System.out.println("1- Menajer Islemleri");
@@ -65,7 +69,7 @@ public class Test {
 		int opt = scanner.nextInt();scanner.nextLine();
 		return opt;
 	}
-
+	
 	private static int futbolAppMenuOpsiyonlari(int opt){
 		switch (opt){
 			case 1:{

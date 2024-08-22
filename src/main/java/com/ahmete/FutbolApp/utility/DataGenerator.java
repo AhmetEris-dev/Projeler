@@ -73,7 +73,8 @@ public class DataGenerator {
 	}
 	
 	// TODO menajeri enttiy olarak yap
-	public static void generateTakimlar(TakimDB takimDB, LigDB ligDB) {
+	public static void  generateTakimlar(TakimDB takimDB, LigDB ligDB) {
+		List<Takim> takimList=new ArrayList<>();
 		Takim takim1 = new Takim("Galatasaray", ERenkler.KIRMIZI_SARI, "Dursun Özbek", "1905", takimDB);
 		Takim takim2 = new Takim("Fenerbahçe", ERenkler.SARI_LACIVERT, "Ali Koç", "1907", takimDB);
 		Takim takim3 = new Takim("Beşiktaş", ERenkler.SIYAH_BEYAZ, "Ahmet Nur Çebi", "1903", takimDB);
@@ -93,6 +94,7 @@ public class DataGenerator {
 		Takim takim17 = new Takim("Göztepe", ERenkler.CIFT_KIRMIZI, "Mehmet Sepil", "1925", takimDB);
 		Takim takim18 = new Takim("Denizlispor", ERenkler.CIFT_KIRMIZI, "Ali İpek", "1966", takimDB);
 		Takim takim19 = new Takim("Bodrum FK", ERenkler.YESIL_BEYAZ, "Fikret Öztürk", "1931", takimDB);
+		Takim takim20 =new Takim("BAY",takimDB);
 		
 		
 		Lig turkiyeSuperLigi =
@@ -104,7 +106,7 @@ public class DataGenerator {
 				                , takim6.getId(), takim7.getId(), takim8.getId(), takim9.getId(), takim10.getId(),
 				                        takim11.getId(), takim12.getId(), takim13.getId(), takim14.getId(),
 				                        takim15.getId(), takim16.getId(), takim17.getId(), takim18.getId(),
-				                        takim19.getId()));
+				                        takim19.getId(),takim20.getId()));
 	}
 	
 	public static void generateManajer(MenajerDB menajerDB) {
@@ -132,6 +134,7 @@ public class DataGenerator {
 		Menajer manajer17 = new Menajer(LocalDate.of(1970, 6, 1), "Tamer", "Tuna", sifre, 17, menajerDB);
 		Menajer manajer18 = new Menajer(LocalDate.of(1977, 2, 18), "Yücel", "İldiz", sifre, 18, menajerDB);
 		Menajer menajer19 = new Menajer(LocalDate.of(1974, 1, 21), "İsmet", "Taşdemir", sifre, 19, menajerDB);
+		
 	}
 	
 }

@@ -26,6 +26,13 @@ public class Takim extends BaseEntity {
 		FileIOWriter.takimlariDosyayaYazdir(takimDB);
 	}
 	
+	public Takim(String takimIsim,TakimDB takimDB) {
+		this.takimIsim = takimIsim;
+		this.id=++takimIdCount;
+		takimDB.save(this);
+		
+	}
+	
 	public Takim(TakimDB takimDB) {
 		this.id=++takimIdCount;
 		takimDB.save(this);

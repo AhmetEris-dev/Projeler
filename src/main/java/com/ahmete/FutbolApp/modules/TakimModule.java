@@ -7,6 +7,7 @@ import com.ahmete.FutbolApp.entities.Futbolcu;
 import com.ahmete.FutbolApp.entities.Takim;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -145,4 +146,7 @@ public class TakimModule {
 		int takimId = scanner.nextInt();
 		return takimId;
 	}
+	
+	
+	
 }

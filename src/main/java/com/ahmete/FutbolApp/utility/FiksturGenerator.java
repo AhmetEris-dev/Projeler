@@ -11,10 +11,12 @@ public class FiksturGenerator {
 	private List<DayOfWeek> gunler;
 	private static Map<Integer, List<Musabaka>> fikstur = new HashMap<>();
 	private LocalDate sezonBaslangic;
+	private Map<Integer, String> takimIDtoIsim;
 	
-	public FiksturGenerator(List<Integer> takimIDleri, LocalDate sezonBaslangic) {
+	public FiksturGenerator(List<Integer> takimIDleri, LocalDate sezonBaslangic, Map<Integer, String> takimIDtoIsim) {
 		this.takimIDleri = takimIDleri;
 		this.sezonBaslangic = sezonBaslangic;
+		this.takimIDtoIsim = takimIDtoIsim;
 		this.gunler = Arrays.asList(DayOfWeek.FRIDAY, DayOfWeek.SATURDAY, DayOfWeek.SUNDAY, DayOfWeek.MONDAY);
 	}
 	
@@ -44,7 +46,7 @@ public class FiksturGenerator {
 					misafirTakim = takimIDleri.get(i);
 				}
 				
-				musabakalar.add(new Musabaka(evSahibi, misafirTakim));
+				musabakalar.add(new Musabaka(evSahibi, misafirTakim, takimIDtoIsim));
 			}
 			
 			fikstur.put(hafta + 1, musabakalar);
@@ -66,7 +68,7 @@ public class FiksturGenerator {
 					misafirTakim = takimIDleri.get(takimSayisi - 1 - i);
 				}
 				
-				musabakalar.add(new Musabaka(evSahibi, misafirTakim));
+				musabakalar.add(new Musabaka(evSahibi, misafirTakim, takimIDtoIsim));
 			}
 			
 			fikstur.put(hafta + takimSayisi, musabakalar);
@@ -89,11 +91,12 @@ public class FiksturGenerator {
 			musabakalar.sort(Comparator.comparing(Musabaka::getMusabakaTarihi));
 		}
 	}
+	public void fiksturuYazdir(Map<Integer, String> takimIdToNameMap) {
 	
-	public void fiksturuYazdir() {
-		int haftaNumarasi = 1;
-		for (List<Musabaka> musabakalar : fikstur.values()) {
-			System.out.println("Hafta " + haftaNumarasi++);
+		for (Map.Entry<Integer, List<Musabaka>> entry : fikstur.entrySet()) {
+			Integer hafta = entry.getKey();
+			List<Musabaka> musabakalar = entry.getValue();
+			System.out.println("Hafta: " + hafta);
 			for (Musabaka musabaka : musabakalar) {
 				System.out.println(musabaka.toStringFikstur());
 			}

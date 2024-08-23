@@ -72,6 +72,7 @@ public class DataGenerator {
 	
 	// TODO menajeri enttiy olarak yap
 	public static void  generateTakimlar(TakimDB takimDB, LigDB ligDB) {
+		
 		List<Takim> takimList=new ArrayList<>();
 		Takim takim1 = new Takim("Galatasaray",1, ERenkler.KIRMIZI_SARI, "Dursun Özbek", "1905", takimDB);
 		Takim takim2 = new Takim("Fenerbahçe",2, ERenkler.SARI_LACIVERT, "Ali Koç", "1907", takimDB);

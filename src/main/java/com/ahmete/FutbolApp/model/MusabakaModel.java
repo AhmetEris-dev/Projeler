@@ -44,10 +44,7 @@ public class MusabakaModel {
 		
 	}
 	
-	/**
-	 * 	System.out.println("Ev Sahibi Takım       : "+evSahibiID+" VS "+"Misafir Takım : "+misafirTakimID);
-	 * 	bunun yerine sadece takım isimlerini ver
-	 */
+	
 	public void musabakaBilgileriniGoster(){
 		System.out.println("------------------------------------");
 		System.out.println("Musabaka Bilgileri");

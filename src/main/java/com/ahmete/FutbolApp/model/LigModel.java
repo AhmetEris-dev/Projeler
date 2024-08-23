@@ -2,6 +2,7 @@ package com.ahmete.FutbolApp.model;
 
 
 import com.ahmete.FutbolApp.entities.Lig;
+import com.ahmete.FutbolApp.entities.Musabaka;
 import com.ahmete.FutbolApp.entities.Takim;
 import com.ahmete.FutbolApp.utility.enums.EBolge;
 import com.ahmete.FutbolApp.utility.enums.EKume;
@@ -11,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 public class LigModel {
+	
 	//TODO lig puan listesi
 	private int ligID;
 	private String ligIsmi;
@@ -19,7 +21,11 @@ public class LigModel {
 	private EKume kume;
 	private EBolge bolge;
 	private LocalDate baslangicTarihi;
+	
+	private Map<Takim,List<Musabaka>> takiminFiksturu;
+	
 	private Map<Integer, List<MusabakaModel>> fikstur;
+	
 	
 	public LigModel(Lig lig, List<Takim> takimlar) {
 		this.baslangicTarihi = lig.getBaslangicTarihi();
@@ -62,4 +68,5 @@ public class LigModel {
 	public void setFikstur(Map<Integer, List<MusabakaModel>> fikstur) {
 		this.fikstur = fikstur;
 	}
+	
 }

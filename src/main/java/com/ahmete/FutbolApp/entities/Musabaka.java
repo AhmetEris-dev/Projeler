@@ -4,6 +4,7 @@ import com.ahmete.FutbolApp.Databases.MusabakaDB;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Map;
 import java.util.Optional;
 
 public class Musabaka extends BaseEntity {
@@ -17,6 +18,7 @@ public class Musabaka extends BaseEntity {
 	private String hakemIsmi;
 	private LocalDate musabakaTarihi; //localdate time yap
 	private Integer ligID;
+	private Map<Integer, String> takimIDtoIsim;
 	//sonradan stadyumID eklenecek
 	
 	
@@ -36,6 +38,11 @@ public class Musabaka extends BaseEntity {
 	public Musabaka(Integer evSahibiID, Integer misafirTakimID) {
 		this.evSahibiID = evSahibiID;
 		this.misafirTakimID = misafirTakimID;
+	}
+	public Musabaka(Integer evSahibiID, Integer misafirTakimID, Map<Integer, String> takimIDtoIsim) {
+		this.evSahibiID = evSahibiID;
+		this.misafirTakimID = misafirTakimID;
+		this.takimIDtoIsim = takimIDtoIsim;
 	}
 	
 
@@ -115,8 +122,9 @@ public class Musabaka extends BaseEntity {
 	
 	
 	public String toStringFikstur() {
-		return "Musabaka{" + "evSahibiID=" + getEvSahibiID() + " VS " + ", misafirTakimID=" + getMisafirTakimID() + ","
-				+ " " + "musabakaTarihi=" + getMusabakaTarihi() + '}';
+		String evSahibiIsim = takimIDtoIsim.getOrDefault(evSahibiID, "BAY");
+		String misafirTakimIsim = takimIDtoIsim.getOrDefault(misafirTakimID, "BAY");
+		return evSahibiIsim + " VS " + misafirTakimIsim + ", Tarih: " + musabakaTarihi;
 	}
 	
 	@Override

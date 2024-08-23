@@ -2,25 +2,25 @@ package com.ahmete.FutbolApp.utility;
 
 import com.ahmete.FutbolApp.Databases.*;
 import com.ahmete.FutbolApp.entities.*;
+import com.ahmete.FutbolApp.model.DatabaseModel;
 import com.ahmete.FutbolApp.utility.enums.EBolge;
 import com.ahmete.FutbolApp.utility.enums.EKume;
 import com.ahmete.FutbolApp.utility.enums.EMevki;
 import com.ahmete.FutbolApp.utility.enums.ERenkler;
 
-import java.time.DayOfWeek;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
 public class DataGenerator {
 	
-	public static void generateData(FutbolcuDB futbolcuDB, TakimDB takimDB, LigDB ligDB, MenajerDB menajerDB,StadyumDB stadyumDB) {
-		generateManajer(menajerDB);
-		generateTakimlar(takimDB, ligDB);
-		rastgeleFutbolcuUret(futbolcuDB);
-		generateStadyum(stadyumDB);
+	public static void generateData(DatabaseModel databaseModel) {
+		generateManajer(databaseModel.menajerDB);
+		generateTakimlar(databaseModel.takimDB,databaseModel.ligDB);
+		rastgeleFutbolcuUret(databaseModel.futbolcuDB);
+		generateStadyum(databaseModel.stadyumDB);
 	}
 	
 	
@@ -130,6 +130,7 @@ public class DataGenerator {
 		Menajer manajer17 = new Menajer(LocalDate.of(1970, 6, 1), "Tamer", "Tuna", sifre, 17, menajerDB);
 		Menajer manajer18 = new Menajer(LocalDate.of(1977, 2, 18), "Yücel", "İldiz", sifre, 18, menajerDB);
 		Menajer menajer19 = new Menajer(LocalDate.of(1974, 1, 21), "İsmet", "Taşdemir", sifre, 19, menajerDB);
+		
 		
 	}
 	public  static void  generateStadyum(StadyumDB stadyumDB){

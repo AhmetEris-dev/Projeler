@@ -1,6 +1,7 @@
 package com.ahmete.FutbolApp.entities;
 
 import com.ahmete.FutbolApp.Databases.TakimDB;
+import com.ahmete.FutbolApp.model.DatabaseModel;
 import com.ahmete.FutbolApp.utility.FileIOWriter;
 import com.ahmete.FutbolApp.utility.enums.ERenkler;
 
@@ -8,6 +9,7 @@ import java.util.List;
 
 public class Takim extends BaseEntity {
 	static int takimIdCount = 0;
+	private  static DatabaseModel databaseModel=new DatabaseModel();
 	
 	private Integer stadyumID;
 	private String takimIsim;
@@ -25,7 +27,7 @@ public class Takim extends BaseEntity {
 		this.kurulusTarihi = kurulusTarihi;
 		this.id=++takimIdCount;
 		takimDB.save(this);
-		FileIOWriter.takimlariDosyayaYazdir(takimDB);
+		FileIOWriter.takimlariDosyayaYazdir(databaseModel);
 	}
 	
 	public Takim(String takimIsim,TakimDB takimDB) {
@@ -38,7 +40,7 @@ public class Takim extends BaseEntity {
 	public Takim(TakimDB takimDB) {
 		this.id=++takimIdCount;
 		takimDB.save(this);
-		FileIOWriter.takimlariDosyayaYazdir(takimDB);
+		FileIOWriter.takimlariDosyayaYazdir(databaseModel);
 	}
 	
 	public Integer getStadyumID() {

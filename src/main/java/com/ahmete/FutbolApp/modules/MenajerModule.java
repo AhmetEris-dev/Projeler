@@ -5,6 +5,7 @@ import com.ahmete.FutbolApp.Databases.MenajerDB;
 import com.ahmete.FutbolApp.Databases.TakimDB;
 import com.ahmete.FutbolApp.entities.Futbolcu;
 import com.ahmete.FutbolApp.entities.Menajer;
+import com.ahmete.FutbolApp.model.DatabaseModel;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,16 +13,12 @@ import java.util.Scanner;
 
 public class MenajerModule {
 	
-	private static MenajerDB menajerDB;
-	private static TakimDB takimDB;
-	private static FutbolcuDB futbolcuDB;
+    private static DatabaseModel databaseModel;
 	private static Optional<Menajer> aktifMenajer = Optional.empty();  // aktif menajer bilgisini burada tutuyoruz
 	private static final Scanner scanner = new Scanner(System.in);
 	
-	public static void menajerModule(MenajerDB menajerDB, TakimDB takimDB, FutbolcuDB futbolcuDB) {
-		MenajerModule.menajerDB = menajerDB;
-		MenajerModule.takimDB = takimDB;
-		MenajerModule.futbolcuDB = futbolcuDB;
+	public static void menajerModule(DatabaseModel dbModel) {
+		databaseModel=dbModel;
 		
 		int opt;
 		do {
@@ -32,6 +29,7 @@ public class MenajerModule {
 	}
 	
 	private static Optional<Menajer> girisYap() {
+		MenajerDB menajerDB=databaseModel.menajerDB;
 		while (true) {
 			System.out.println("lütfen menajer ID giriniz");
 			int id = scanner.nextInt();
@@ -124,6 +122,7 @@ public class MenajerModule {
 	}
 	
 	private static void takimIdyeGoreFutbolcularOzetBilgi () {
+		FutbolcuDB futbolcuDB=databaseModel.futbolcuDB;
 		System.out.println("Futbolcularini goruntulemek istediginiz takimi seciniz:");
 		int takimId = scanner.nextInt();
 		scanner.nextLine();
@@ -132,10 +131,12 @@ public class MenajerModule {
 	}
 	
 	private static void takimlerinOzetBilgileriniGoruntule() {
+		TakimDB takimDB=databaseModel.takimDB;
 		takimDB.takimlarIsimIdList();
 	}
 	
 	private static void kulubumunDetaylariniGoruntule() {
+		TakimDB takimDB=databaseModel.takimDB;
 		if (aktifMenajer.isEmpty()) {
 			System.out.println("lütfen giriş yapınız");
 		}
@@ -143,6 +144,8 @@ public class MenajerModule {
 	}
 	
 	private static void kulubumunFutbolculariniGoruntule() {
+		FutbolcuDB futbolcuDB=databaseModel.futbolcuDB;
+		
 		if (aktifMenajer.isEmpty()) {
 			System.out.println("lütfen giriş yapınız");
 		}

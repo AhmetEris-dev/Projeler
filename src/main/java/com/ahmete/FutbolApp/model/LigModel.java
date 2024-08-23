@@ -69,4 +69,6 @@ public class LigModel {
 		this.fikstur = fikstur;
 	}
 	
+	
+	
 }

@@ -1,12 +1,14 @@
 package com.ahmete.FutbolApp.entities;
 
 import com.ahmete.FutbolApp.Databases.MenajerDB;
+import com.ahmete.FutbolApp.model.DatabaseModel;
 import com.ahmete.FutbolApp.utility.FileIOWriter;
 
 import java.time.LocalDate;
 
 public class Menajer extends BaseEntity {
 	static int manajerIDCount=0;
+	private  static DatabaseModel databaseModel=new DatabaseModel();
 	
 	private String isim;
 	private String soyIsim;
@@ -24,7 +26,7 @@ public class Menajer extends BaseEntity {
 		this.sifre=sifre;
 		this.id=++manajerIDCount;
 		menajerDB.save(this);
-		FileIOWriter.menajerleriDosyayaYazdir(menajerDB);
+		FileIOWriter.menajerleriDosyayaYazdir(databaseModel);
 		
 	}
 	

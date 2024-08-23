@@ -2,6 +2,7 @@ package com.ahmete.FutbolApp.entities;
 
 
 import com.ahmete.FutbolApp.Databases.LigDB;
+import com.ahmete.FutbolApp.model.DatabaseModel;
 import com.ahmete.FutbolApp.utility.FileIOWriter;
 import com.ahmete.FutbolApp.utility.enums.EBolge;
 import com.ahmete.FutbolApp.utility.enums.EKume;
@@ -12,6 +13,7 @@ import java.util.List;
 
 
 public class Lig extends BaseEntity {
+	private  static DatabaseModel databaseModel=new DatabaseModel();
 	static int ligIDCount = 0;
 	//TODO lig puan listesi
 	private String ligIsmi;
@@ -29,7 +31,7 @@ public class Lig extends BaseEntity {
 		this.id=++ligIDCount;
 		takimIDList=new ArrayList<>();
 		ligDB.save(this);
-		FileIOWriter.ligleriDosyayaYazdir(ligDB);
+		FileIOWriter.ligleriDosyayaYazdir(databaseModel);
 		
 	}
 	
@@ -41,7 +43,7 @@ public class Lig extends BaseEntity {
 		this.baslangicTarihi=baslangicTarihi;
 		takimIDList=new ArrayList<>();
 		ligDB.save(this);
-		FileIOWriter.ligleriDosyayaYazdir(ligDB);
+		FileIOWriter.ligleriDosyayaYazdir(databaseModel);
 	}
 	
 	public Lig(String ligIsmi, LigDB ligDB) {
@@ -49,7 +51,7 @@ public class Lig extends BaseEntity {
 		takimIDList=new ArrayList<>();
 		this.id=++ligIDCount;
 		ligDB.save(this);
-		FileIOWriter.ligleriDosyayaYazdir(ligDB);
+		FileIOWriter.ligleriDosyayaYazdir(databaseModel);
 	}
 	
 	public Lig(String ligIsmi, String sezon, EKume kume, EBolge bolge, LigDB ligDB,LocalDate baslangicTarihi) {
@@ -61,7 +63,7 @@ public class Lig extends BaseEntity {
 		this.baslangicTarihi=baslangicTarihi;
 		takimIDList=new ArrayList<>();
 		ligDB.save(this);
-		FileIOWriter.ligleriDosyayaYazdir(ligDB);
+		FileIOWriter.ligleriDosyayaYazdir(databaseModel);
 		
 	}
 	

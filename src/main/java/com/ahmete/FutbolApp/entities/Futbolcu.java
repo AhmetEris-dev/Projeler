@@ -2,6 +2,7 @@ package com.ahmete.FutbolApp.entities;
 
 
 import com.ahmete.FutbolApp.Databases.FutbolcuDB;
+import com.ahmete.FutbolApp.model.DatabaseModel;
 import com.ahmete.FutbolApp.utility.FileIOWriter;
 import com.ahmete.FutbolApp.utility.enums.EMevki;
 
@@ -9,6 +10,7 @@ import java.time.LocalDate;
 
 public class Futbolcu extends BaseEntity {
 	static int futbolcuIdCount=0;
+	private  static DatabaseModel databaseModel=new DatabaseModel();
 	
 	private String isim;
 	private String soyIsim;
@@ -26,13 +28,13 @@ public class Futbolcu extends BaseEntity {
 		this.mevki = mevki;
 		this.id=++futbolcuIdCount;
 		futbolcuDB.save(this);
-		FileIOWriter.futbolculariDosyayaYazdir(futbolcuDB);
+		FileIOWriter.futbolculariDosyayaYazdir(databaseModel);
 	}
 	
 	public Futbolcu(FutbolcuDB futbolcuDB) {
 		futbolcuDB.save(this);
 		this.id=++futbolcuIdCount;
-		FileIOWriter.futbolculariDosyayaYazdir(futbolcuDB);
+		FileIOWriter.futbolculariDosyayaYazdir(databaseModel);
 	}
 	
 	public static int getFutbolcuIdCount() {

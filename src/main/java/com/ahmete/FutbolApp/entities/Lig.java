@@ -13,7 +13,7 @@ import java.util.List;
 
 
 public class Lig extends BaseEntity {
-	private  static DatabaseModel databaseModel=new DatabaseModel();
+	private  static DatabaseModel databaseModel=DatabaseModel.getInstance();
 	static int ligIDCount = 0;
 	//TODO lig puan listesi
 	private String ligIsmi;

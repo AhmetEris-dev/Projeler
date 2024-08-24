@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Takim extends BaseEntity {
 	static int takimIdCount = 0;
-	private  static DatabaseModel databaseModel=new DatabaseModel();
+	private  static DatabaseModel databaseModel=DatabaseModel.getInstance();
 	
 	private Integer stadyumID;
 	private String takimIsim;

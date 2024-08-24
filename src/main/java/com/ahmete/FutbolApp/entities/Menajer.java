@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 public class Menajer extends BaseEntity {
 	static int manajerIDCount=0;
-	private  static DatabaseModel databaseModel=new DatabaseModel();
+	private  static DatabaseModel databaseModel= DatabaseModel.getInstance();
 	
 	private String isim;
 	private String soyIsim;

@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1dadcbb1-7209-4709-a110-96fbf0d79126" name="Changes" comment="ligModel sınıfında fikstur oluşturuldu">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/Databases/FutbolcuDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/Databases/FutbolcuDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/Databases/LigDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/Databases/LigDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/Databases/MusabakaDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/Databases/MusabakaDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/Databases/TakimDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/Databases/TakimDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/Test.java" afterDir="false" />
+    <list default="true" id="1dadcbb1-7209-4709-a110-96fbf0d79126" name="Changes" comment="DatabaseSınıflarımızı singleton design pattern ile düzenedik.">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/Futbolcu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/Futbolcu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/Lig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/Lig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/Menajer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/Menajer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/Takim.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/Takim.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -376,7 +375,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724509365329</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="DatabaseSınıflarımızı singleton design pattern ile düzenedik.">
+      <option name="closed" value="true" />
+      <created>1724510080713</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1724510080713</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -396,6 +403,7 @@
     <MESSAGE value="duzenlemer" />
     <MESSAGE value="DatabaseModel sınıfı oluşturuldu programa optimize edildi" />
     <MESSAGE value="ligModel sınıfında fikstur oluşturuldu" />
-    <option name="LAST_COMMIT_MESSAGE" value="ligModel sınıfında fikstur oluşturuldu" />
+    <MESSAGE value="DatabaseSınıflarımızı singleton design pattern ile düzenedik." />
+    <option name="LAST_COMMIT_MESSAGE" value="DatabaseSınıflarımızı singleton design pattern ile düzenedik." />
   </component>
 </project>

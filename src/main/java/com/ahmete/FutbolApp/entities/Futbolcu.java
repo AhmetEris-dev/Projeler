@@ -10,7 +10,7 @@ import java.time.LocalDate;
 
 public class Futbolcu extends BaseEntity {
 	static int futbolcuIdCount=0;
-	private  static DatabaseModel databaseModel=new DatabaseModel();
+	private  static DatabaseModel databaseModel= DatabaseModel.getInstance();
 	
 	private String isim;
 	private String soyIsim;

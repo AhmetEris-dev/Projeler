@@ -100,23 +100,22 @@ public class MenajerModule {
 		switch (opt) {
 			case 1: {
 				kulubumunDetaylariniGoruntule();
-				menajerGirisMenuOpsiyonlari(menajerMenu());
 				break;
 			}
 			case 2: {
 				kulubumunFutbolculariniGoruntule();
-				menajerGirisMenuOpsiyonlari(menajerMenu());
 				break;
 			}
 			case 3: {
 				takimlerinOzetBilgileriniGoruntule();
 				takimIdyeGoreFutbolcularOzetBilgi();
-				menajerGirisMenuOpsiyonlari(menajerMenu());
 				break;
 			}
 			case 0: {
 				System.out.println("Ust menuye donuluyor");
 			}
+			default:
+				System.out.println("Geçerli bir seçim yapınız!!");
 		}
 		return opt;
 	}

@@ -13,6 +13,7 @@ public class DatabaseModel {
 	public final StadyumDB stadyumDB = StadyumDB.getInstance();
 	
 	private DatabaseModel() {}
+	
 	public static DatabaseModel getInstance() {
 		return instance;
 	}

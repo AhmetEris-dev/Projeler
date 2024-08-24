@@ -41,7 +41,7 @@ public class DataGenerator {
 	public static void rastgeleFutbolcuUret(FutbolcuDB futbolcuDB) {
 		Random random = new Random();
 		int takimID = 1;
-		for (int i = 0; i < 18; i++) {
+		for (int i = 0; i < 20; i++) {
 			for (int j = 0; j < 11; j++) {
 				Futbolcu futbolcu = new Futbolcu(futbolcuDB);
 				switch (j) {

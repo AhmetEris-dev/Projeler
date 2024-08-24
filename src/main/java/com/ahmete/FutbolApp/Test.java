@@ -19,7 +19,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class Test {
-	private static DatabaseModel databaseModel = new DatabaseModel();
+	private static DatabaseModel databaseModel = DatabaseModel.getInstance();
 	private static Scanner scanner = new Scanner(System.in);
 	private static LigModel ligModel = new LigModel(databaseModel);
 	
@@ -28,7 +28,7 @@ public class Test {
 
 //		DataGenerator.generateData(databaseModel);
 //		FileIOWriter.nesneleriYazdir(databaseModel);
-//		FileIOReader.nesneleriOku(databaseModel);
+		FileIOReader.nesneleriOku(databaseModel);
 //
 		startApplication();
 	 

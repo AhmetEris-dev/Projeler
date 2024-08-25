@@ -23,7 +23,46 @@ public class FutbollAppRunner {
 //		FileIOReader.nesneleriOku(databaseModel);
 //
 //		startApplication();
-	
+		// Takım ID'leri ve isimlerini içeren bir Map oluştur
+		Map<Integer, String> takimIDtoIsim = new HashMap<>();
+		takimIDtoIsim.put(1, "Takım A");
+		takimIDtoIsim.put(2, "Takım B");
+		takimIDtoIsim.put(3, "Takım C");
+		takimIDtoIsim.put(4, "Takım D");
+		
+		// Takım ID'lerinden oluşan bir liste oluştur
+		List<Integer> takimIDlist = new ArrayList<>(takimIDtoIsim.keySet());
+		
+		// Puan sınıfı örneği oluştur
+		Puan puanTablosu = new Puan(takimIDlist);
+		
+		// Maçlar listesi oluştur (ev sahibi, misafir)
+		List<Integer[]> maclar = new ArrayList<>();
+		maclar.add(new Integer[]{4, 3}); // Takım A vs Takım B
+		maclar.add(new Integer[]{3, 4}); // Takım C vs Takım D
+		maclar.add(new Integer[]{1, 3}); // Takım A vs Takım C
+		maclar.add(new Integer[]{2, 4}); // Takım B vs Takım D
+		
+		// Maçları yaptır
+		maclariYaptir(maclar, puanTablosu, takimIDtoIsim);
+		
+		// Puan tablosunu yazdır
+		puanTablosu.puanTablosuYazdir(takimIDtoIsim);
+	}
+	public static void maclariYaptir(List<Integer[]> maclar, Puan puanTablosu, Map<Integer, String> takimIDtoIsim) {
+		Random random = new Random();
+		for (Integer[] mac : maclar) {
+			int evSahibiID = mac[0];
+			int misafirID = mac[1];
+			int evSahibiGoller = random.nextInt(5);  // Rastgele gol sayısı (0-4)
+			int misafirGoller = random.nextInt(5);   // Rastgele gol sayısı (0-4)
+			
+			// Maç sonucunu puan tablosuna ekle
+			puanTablosu.macSonucu(evSahibiID, misafirID, evSahibiGoller, misafirGoller);
+			
+			// Maç sonucunu yazdır
+			System.out.println(takimIDtoIsim.get(evSahibiID) + " " + evSahibiGoller + "-" + misafirGoller + " " + takimIDtoIsim.get(misafirID));
+		}
 	}
 	
 	
@@ -38,7 +77,8 @@ public class FutbollAppRunner {
 		System.out.println("### Futbol App Ana Menu ###");
 		System.out.println("1- Menajer Islemleri");
 		System.out.println("2- Takim Islemleri");
-		System.out.println("3- Fiksturu goruntule");
+		System.out.println("3- Musabaka Islemleri");
+		System.out.println("4- Fiksturu goruntule");
 		System.out.println("0- Cikis");
 		System.out.println("Secimiz: ");
 		int opt = scanner.nextInt();
@@ -57,6 +97,9 @@ public class FutbollAppRunner {
 				break;
 			}
 			case 3:{
+			
+			}
+			case 4:{
 				ligModel.fiksturOlustur(databaseModel);
 				break;
 			}

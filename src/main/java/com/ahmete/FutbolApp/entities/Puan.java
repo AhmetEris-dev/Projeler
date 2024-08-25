@@ -9,7 +9,8 @@ public class Puan {
 	private Map<Integer,Integer> galibiyetler;
 	private Map<Integer,Integer> maglubiyetler;
 	private Map<Integer,Integer> beraberlikler;
-
+     //galatasaru  1 evsahibi puan0  G 0  M 1   B 1
+	// fenerbahce  1  misafir  puanı3 G 1  M 0  B 1
 	public Puan(List<Integer> takimIDlist) {
 		this.beraberlikler = new HashMap<>();
 		this.galibiyetler = new HashMap<>();
@@ -17,7 +18,7 @@ public class Puan {
 		this.puanlar = new HashMap<>();
 		for (Integer takimID: takimIDlist){
 			puanlar.put(takimID,0);
-			galibiyetler.put(takimID,0);
+			galibiyetler.put(takimID,0);   // galibiyetler.put(2,1)
 			maglubiyetler.put(takimID,0);
 			beraberlikler.put(takimID,0);
 		}

@@ -8,20 +8,17 @@ import com.ahmete.FutbolApp.entities.Takim;
 import com.ahmete.FutbolApp.model.DatabaseModel;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 import java.util.Scanner;
 
 
-/**
- * Kulüp modulü; Menüde; 1- Isme Gore Kulup Ara, 2- Kulupleri Listele
- */
+
 public class TakimModule {
 	private static DatabaseModel databaseModel;
 	private static final Scanner scanner = new Scanner(System.in);
 	
 	public static void takimModule(DatabaseModel dbModel) {
-		databaseModel=dbModel;
+		databaseModel = dbModel;
 		int opt;
 		do {
 			opt = takimModelMenu();
@@ -51,7 +48,8 @@ public class TakimModule {
 				if (takimList.isEmpty()) {
 					System.out.println("Takım Bulunamadı!");
 					return;
-				} else {
+				}
+				else {
 					System.out.println("Bulunan Takımlar:");
 					for (Takim takim : takimList) {
 						System.out.println("ID: " + takim.getId() + ", İsim: " + takim.getTakimIsim());
@@ -92,20 +90,20 @@ public class TakimModule {
 	}
 	
 	private static void takimDetayMenuSecenekleri(int opt, List<Takim> takimList) {
-		FutbolcuDB futbolcuDB=databaseModel.futbolcuDB;
+		FutbolcuDB futbolcuDB = databaseModel.futbolcuDB;
 		switch (opt) {
 			case 1: {
 				if (takimList.size() == 1) {
 					Takim takim = takimList.getFirst();
 					System.out.println(takim);
-				} else {
+				}
+				else {
 					Integer takimId = idAl();
-					Optional<Takim> takim = takimList.stream()
-					                                 .filter(t -> t.getId() == takimId)
-					                                 .findFirst();
+					Optional<Takim> takim = takimList.stream().filter(t -> t.getId() == takimId).findFirst();
 					if (takim.isPresent()) {
 						System.out.println(takim.get());
-					} else {
+					}
+					else {
 						System.out.println("Geçersiz ID. Tekrar deneyin.");
 						
 					}
@@ -118,15 +116,18 @@ public class TakimModule {
 					List<Futbolcu> futbolcuList = futbolcuDB.takimIdyeGoreFutbolcuBul(takimId);
 					if (futbolcuList.isEmpty()) {
 						System.out.println("Bu takımın kadrosu bulunamadı!");
-					} else {
+					}
+					else {
 						futbolcuList.forEach(System.out::println);
 					}
-				} else {
+				}
+				else {
 					Integer takimId = idAl();
 					List<Futbolcu> futbolcuList = futbolcuDB.takimIdyeGoreFutbolcuBul(takimId);
 					if (futbolcuList.isEmpty()) {
 						System.out.println("Bu takımın kadrosu bulunamadı!");
-					} else {
+					}
+					else {
 						futbolcuList.forEach(System.out::println);
 					}
 				}
@@ -147,7 +148,4 @@ public class TakimModule {
 		int takimId = scanner.nextInt();
 		return takimId;
 	}
-	
-	
-	
 }

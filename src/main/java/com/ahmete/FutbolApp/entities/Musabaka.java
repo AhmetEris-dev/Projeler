@@ -3,9 +3,8 @@ package com.ahmete.FutbolApp.entities;
 import com.ahmete.FutbolApp.Databases.MusabakaDB;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Map;
-import java.util.Optional;
+
 
 public class Musabaka extends BaseEntity {
 	static int musabakaIDCOunt = 0;
@@ -16,10 +15,9 @@ public class Musabaka extends BaseEntity {
 	private int evSahibiSkor;
 	private int misafirTakimSkor;
 	private String hakemIsmi;
-	private LocalDate musabakaTarihi; //localdate time yap
+	private LocalDate musabakaTarihi;
 	private Integer ligID;
 	private Map<Integer, String> takimIDtoIsim;
-	//sonradan stadyumID eklenecek
 	
 	
 	public Musabaka(Integer evSahibiID, Integer misafirTakimID, Stadyum stadyum, int evSahibiSkor, int misafirTakimSkor

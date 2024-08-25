@@ -1,5 +1,7 @@
+
 package com.ahmete.FutbolApp;
 
+import com.ahmete.FutbolApp.entities.Puan;
 import com.ahmete.FutbolApp.model.DatabaseModel;
 import com.ahmete.FutbolApp.model.LigModel;
 import com.ahmete.FutbolApp.modules.MenajerModule;
@@ -18,13 +20,12 @@ public class FutbollAppRunner {
 
 //		DataGenerator.generateData(databaseModel);
 //		FileIOWriter.nesneleriYazdir(databaseModel);
-		FileIOReader.nesneleriOku(databaseModel);
-
-		startApplication();
-	 
-		
+//		FileIOReader.nesneleriOku(databaseModel);
+//
+//		startApplication();
 	
 	}
+	
 	
 	public static void startApplication() {
 		int opt = 0;

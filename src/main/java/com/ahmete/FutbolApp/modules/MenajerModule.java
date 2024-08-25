@@ -13,12 +13,12 @@ import java.util.Scanner;
 
 public class MenajerModule {
 	
-    private static DatabaseModel databaseModel;
+	private static DatabaseModel databaseModel;
 	private static Optional<Menajer> aktifMenajer = Optional.empty();  // aktif menajer bilgisini burada tutuyoruz
 	private static final Scanner scanner = new Scanner(System.in);
 	
 	public static void menajerModule(DatabaseModel dbModel) {
-		databaseModel=dbModel;
+		databaseModel = dbModel;
 		
 		int opt;
 		do {
@@ -29,7 +29,7 @@ public class MenajerModule {
 	}
 	
 	private static Optional<Menajer> girisYap() {
-		MenajerDB menajerDB=databaseModel.menajerDB;
+		MenajerDB menajerDB = databaseModel.menajerDB;
 		while (true) {
 			System.out.println("lütfen menajer ID giriniz");
 			int id = scanner.nextInt();
@@ -61,25 +61,24 @@ public class MenajerModule {
 	}
 	
 	private static int menajerGirisMenuOpsiyonlari(int opt) {
-		while (true) {
-			switch (opt) {
-				case 1: {
-					girisYap();
-					menajerMenuOpsiyonlari(menajerMenu());
-					break;
-				}
-				
-				case 2: {
-					System.out.println("Ana menuye donuluyor");
-					break;
-				}
-				case 0: {
-					System.out.println("0--Ust menuye donuluyor ");
-					break;
-				}
+		switch (opt) {
+			case 1: {
+				girisYap();
+				menajerMenuOpsiyonlari(menajerMenu());
+				break;
 			}
-			return opt;
+			
+			case 2: {
+				System.out.println("Ana menuye donuluyor");
+				break;
+			}
+			case 0: {
+				System.out.println("0--Ust menuye donuluyor ");
+				break;
+			}
 		}
+		return opt;
+		
 	}
 	
 	private static int menajerMenu() {
@@ -120,8 +119,8 @@ public class MenajerModule {
 		return opt;
 	}
 	
-	private static void takimIdyeGoreFutbolcularOzetBilgi () {
-		FutbolcuDB futbolcuDB=databaseModel.futbolcuDB;
+	private static void takimIdyeGoreFutbolcularOzetBilgi() {
+		FutbolcuDB futbolcuDB = databaseModel.futbolcuDB;
 		System.out.println("Futbolcularini goruntulemek istediginiz takimi seciniz:");
 		int takimId = scanner.nextInt();
 		scanner.nextLine();
@@ -130,12 +129,12 @@ public class MenajerModule {
 	}
 	
 	private static void takimlerinOzetBilgileriniGoruntule() {
-		TakimDB takimDB=databaseModel.takimDB;
+		TakimDB takimDB = databaseModel.takimDB;
 		takimDB.takimlarIsimIdList();
 	}
 	
 	private static void kulubumunDetaylariniGoruntule() {
-		TakimDB takimDB=databaseModel.takimDB;
+		TakimDB takimDB = databaseModel.takimDB;
 		if (aktifMenajer.isEmpty()) {
 			System.out.println("lütfen giriş yapınız");
 		}
@@ -143,7 +142,7 @@ public class MenajerModule {
 	}
 	
 	private static void kulubumunFutbolculariniGoruntule() {
-		FutbolcuDB futbolcuDB=databaseModel.futbolcuDB;
+		FutbolcuDB futbolcuDB = databaseModel.futbolcuDB;
 		
 		if (aktifMenajer.isEmpty()) {
 			System.out.println("lütfen giriş yapınız");

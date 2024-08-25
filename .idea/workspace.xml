@@ -5,10 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1dadcbb1-7209-4709-a110-96fbf0d79126" name="Changes" comment="DatabaseSınıflarımızı singleton design pattern ile düzenedik.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/Puan.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/modules/MusabakaModule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/model/DatabaseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/model/DatabaseModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/FutbollAppRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/FutbollAppRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/Musabaka.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/Musabaka.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/Takim.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/entities/Takim.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/model/MusabakaModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/model/MusabakaModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/modules/MenajerModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/modules/MenajerModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/utility/DataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/utility/DataGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/modules/TakimModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahmete/FutbolApp/modules/TakimModule.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +84,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.FutbollApp.executor": "Run",
+    "Application.FutbollAppRunner.executor": "Run",
     "Application.KulupModule.executor": "Run",
     "Application.Test.executor": "Run",
     "Application.com.ahmete.FutbolApp.Test.executor": "Run",
@@ -87,7 +94,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/intellij/Projeler/FutbolApp",
+    "last_opened_file_path": "C:/intellij/00_JavaTemeller/SoruTekrarlari",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -102,9 +109,9 @@
       <recent name="com.ahmete" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.FutbollApp">
-    <configuration name="FutbollApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ahmete.FutbolApp.FutbollApp" />
+  <component name="RunManager" selected="Application.FutbollAppRunner">
+    <configuration name="FutbollAppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ahmete.FutbolApp.FutbollAppRunner" />
       <module name="FutbolApp.main" />
       <extension name="coverage">
         <pattern>
@@ -144,7 +151,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.FutbollApp" />
+        <item itemvalue="Application.FutbollAppRunner" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.TakimModule" />
       </list>
@@ -391,7 +398,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724510337163</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="DatabaseSınıflarımızı singleton design pattern ile düzenedik.">
+      <option name="closed" value="true" />
+      <created>1724511867560</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1724511867560</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

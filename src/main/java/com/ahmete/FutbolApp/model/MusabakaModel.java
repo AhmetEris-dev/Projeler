@@ -4,12 +4,12 @@ import com.ahmete.FutbolApp.Databases.FutbolcuDB;
 import com.ahmete.FutbolApp.Databases.LigDB;
 import com.ahmete.FutbolApp.Databases.StadyumDB;
 import com.ahmete.FutbolApp.Databases.TakimDB;
-import com.ahmete.FutbolApp.entities.Lig;
-import com.ahmete.FutbolApp.entities.Musabaka;
-import com.ahmete.FutbolApp.entities.Stadyum;
-import com.ahmete.FutbolApp.entities.Takim;
+import com.ahmete.FutbolApp.entities.*;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 public class MusabakaModel {
 	private static TakimDB takimDB;
@@ -25,6 +25,7 @@ public class MusabakaModel {
 	private String hakemIsmi;
 	private LocalDate musabakaTarihi;
 	private Lig ligID;
+
 	
 	public MusabakaModel(TakimDB takimDB, LigDB ligDB, FutbolcuDB futbolcuDB, StadyumDB stadyumDB, Musabaka musabaka,
 	                     Lig lig) {
@@ -59,5 +60,19 @@ public class MusabakaModel {
 		System.out.println("Misafir Takım Skor     : " + misafirTakimSkor);
 		System.out.println("Hakem İsmi            : " + hakemIsmi);
 		System.out.println("------------------------------------");
+	}
+	
+	public static void maclariYaptir(List<Integer[]> musabaklar, Puan puanTablosu, Map<Integer,String> takimIDtoIsim ){
+		Random random=new Random();
+		for (Integer[] musabaka:musabaklar){
+		int evsahibiID=musabaka[0];
+		int misafirID=musabaka[1];
+		int evsahibiSkor=random.nextInt(5);
+		int misafirSkor=random.nextInt(5);
+		
+		puanTablosu.macSonucu(evsahibiID,misafirID,evsahibiSkor,misafirSkor);
+			
+			System.out.println(takimIDtoIsim.get(evsahibiID)+" "+evsahibiSkor+" - "+misafirSkor+" "+takimIDtoIsim.get(misafirID));
+		}
 	}
 }

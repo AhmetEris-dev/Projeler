@@ -5,7 +5,6 @@ import com.ahmete.FutbolApp.model.DatabaseModel;
 import com.ahmete.FutbolApp.utility.FileIOWriter;
 import com.ahmete.FutbolApp.utility.enums.ERenkler;
 
-import java.util.List;
 
 public class Takim extends BaseEntity {
 	static int takimIdCount = 0;
@@ -16,7 +15,6 @@ public class Takim extends BaseEntity {
 	private String baskanIsmi;
 	private String kurulusTarihi;
 	private ERenkler renkler;
-//	private int menajerID=-1;
 	
 	
 	public Takim(String takimIsim,Integer stadyumID, ERenkler renkler, String baskanIsmi, String kurulusTarihi,TakimDB takimDB) {

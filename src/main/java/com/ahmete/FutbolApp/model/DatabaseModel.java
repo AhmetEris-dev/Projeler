@@ -11,6 +11,7 @@ public class DatabaseModel {
 	public final MenajerDB menajerDB = MenajerDB.getInstance();
 	public final MusabakaDB musabakaDB = MusabakaDB.getInstance();
 	public final StadyumDB stadyumDB = StadyumDB.getInstance();
+	public final IstatistikDB istatistikDB=IstatistikDB.getInstance();
 	
 	private DatabaseModel() {}
 	

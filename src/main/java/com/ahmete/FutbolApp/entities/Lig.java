@@ -18,11 +18,11 @@ public class Lig extends BaseEntity {
 	//TODO lig puan listesi
 	private String ligIsmi;
 	private List<Integer> takimIDList;
-//	private List<Integer> takimPuan; daha sonra yapılacak
 	private String sezon;
 	private EKume kume;
 	private EBolge bolge;
 	private LocalDate baslangicTarihi;
+	
 	
 	
 	

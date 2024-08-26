@@ -118,7 +118,6 @@ public class Musabaka extends BaseEntity {
 		this.stadyum = stadyum;
 	}
 	
-	
 	public String toStringFikstur() {
 		String evSahibiIsim = takimIDtoIsim.getOrDefault(evSahibiID, "BAY");
 		String misafirTakimIsim = takimIDtoIsim.getOrDefault(misafirTakimID, "BAY");

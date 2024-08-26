@@ -65,6 +65,16 @@ public class FileIOReader {
 			e.printStackTrace();
 		}
 	}
+	public static void musabakaDosyayiOku(DatabaseModel databaseModel){
+		File inputFile=new File(dosya,"musabakaDB.bin");
+		try(ObjectInputStream ois=new ObjectInputStream(new FileInputStream(inputFile))) {
+			databaseModel.musabakaDB.saveAll((List<Musabaka>) ois.readObject());
+		}
+		
+		catch (IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
 	
 
 	public static void nesneleriOku(DatabaseModel databaseModel){
@@ -73,6 +83,7 @@ public class FileIOReader {
 		ligDosyasiniOku(databaseModel);
 		menajerDosyasiniOku(databaseModel);
 		stadyumDosyasiniOku(databaseModel);
+		musabakaDosyayiOku(databaseModel);
 		
 	}
 }

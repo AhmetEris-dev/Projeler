@@ -31,7 +31,6 @@ public class FiksturGenerator {
 		
 		List<Integer> originalTakimlar = new ArrayList<>(takimIDleri);
 		
-		// İlk yarı
 		for (int hafta = 0; hafta < takimSayisi - 1; hafta++) {
 			List<Musabaka> musabakalar = new ArrayList<>();
 			
@@ -53,7 +52,6 @@ public class FiksturGenerator {
 			takimIDleri.add(1, takimIDleri.remove(takimIDleri.size() - 1));
 		}
 		
-		// İkinci yarı
 		for (int hafta = 0; hafta < takimSayisi - 1; hafta++) {
 			List<Musabaka> musabakalar = new ArrayList<>();
 			
@@ -76,6 +74,7 @@ public class FiksturGenerator {
 		}
 		
 		gunleriAta();
+		
 	}
 	
 	private void gunleriAta() {

@@ -62,17 +62,4 @@ public class MusabakaModel {
 		System.out.println("------------------------------------");
 	}
 	
-	public static void maclariYaptir(List<Integer[]> musabaklar, Puan puanTablosu, Map<Integer,String> takimIDtoIsim ){
-		Random random=new Random();
-		for (Integer[] musabaka:musabaklar){
-		int evsahibiID=musabaka[0];
-		int misafirID=musabaka[1];
-		int evsahibiSkor=random.nextInt(5);
-		int misafirSkor=random.nextInt(5);
-		
-		puanTablosu.macSonucu(evsahibiID,misafirID,evsahibiSkor,misafirSkor);
-			
-			System.out.println(takimIDtoIsim.get(evsahibiID)+" "+evsahibiSkor+" - "+misafirSkor+" "+takimIDtoIsim.get(misafirID));
-		}
-	}
 }

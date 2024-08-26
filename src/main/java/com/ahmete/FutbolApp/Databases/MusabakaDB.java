@@ -17,4 +17,5 @@ public class MusabakaDB extends DataBaseManager<Musabaka> {
 	public static MusabakaDB getInstance() {
 		return instance;
 	}
+	
 }

@@ -1,10 +1,15 @@
 package com.ahmete.FutbolApp.model;
 
 
+import com.ahmete.FutbolApp.Databases.IstatistikDB;
+import com.ahmete.FutbolApp.Databases.LigDB;
+import com.ahmete.FutbolApp.Databases.MusabakaDB;
+import com.ahmete.FutbolApp.entities.Istatistik;
 import com.ahmete.FutbolApp.entities.Lig;
 import com.ahmete.FutbolApp.entities.Musabaka;
 import com.ahmete.FutbolApp.entities.Takim;
 import com.ahmete.FutbolApp.utility.FiksturGenerator;
+import com.ahmete.FutbolApp.utility.FileIOWriter;
 import com.ahmete.FutbolApp.utility.enums.EBolge;
 import com.ahmete.FutbolApp.utility.enums.EKume;
 import com.ahmete.FutbolApp.utility.enums.ERenkler;
@@ -15,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 public class LigModel {
+	private DatabaseModel databaseModel;
 	
 	//TODO lig puan listesi
 	private int ligID;
@@ -24,21 +30,20 @@ public class LigModel {
 	private EKume kume;
 	private EBolge bolge;
 	private LocalDate baslangicTarihi;
-	
-	private Map<Takim,List<Musabaka>> takiminFiksturu;
-	
-	private Map<Integer, List<MusabakaModel>> fikstur;
-	
-	
-	public LigModel(Lig lig, List<Takim> takimlar) {
+	private Map<Integer, List<MusabakaModel>> fikstur=new HashMap<>();
+    private Map<Integer,Integer>	puanTablosu;
+	                      //puan
+
+	public LigModel(Lig lig, List<Takim> takimlar,DatabaseModel databaseModel) {
 		this.baslangicTarihi = lig.getBaslangicTarihi();
 		this.bolge = lig.getBolge();
-		this.fikstur = null;
 		this.kume = lig.getKume();
 		this.ligID = lig.getId();
 		this.ligIsmi = lig.getLigIsmi();
 		this.sezon = lig.getSezon();
 		this.takimlar = takimlar;
+		this.databaseModel=databaseModel;
+		puanTablosu=new HashMap<>();
 	}
 	
 	public LigModel(DatabaseModel databaseModel) {
@@ -77,6 +82,7 @@ public class LigModel {
 	}
 	
 	public void fiksturOlustur(DatabaseModel databaseModel){
+		
 		Takim takim1 = new Takim("Galatasaray", 1, ERenkler.KIRMIZI_SARI, "Dursun Özbek", "1905", databaseModel.takimDB);
 		Takim takim2 = new Takim("Fenerbahçe",2, ERenkler.SARI_LACIVERT, "Ali Koç", "1907", databaseModel.takimDB);
 		Takim takim3 = new Takim("Beşiktaş",3, ERenkler.SIYAH_BEYAZ, "Ahmet Nur Çebi", "1903", databaseModel.takimDB);
@@ -98,11 +104,12 @@ public class LigModel {
 		Takim takim19 = new Takim("Bodrum FK",19, ERenkler.YESIL_BEYAZ, "Fikret Öztürk", "1931", databaseModel.takimDB);
 		
 		
-		Lig turkiyeSuperLigi = new Lig("Türkiye Süper Lig", "sezon1", EKume.TRENDYOL_SUPER_LIG, EBolge.TURKIYE, databaseModel.ligDB,
+		Lig trendyolSuperLig = new Lig("Türkiye Süper Lig", "sezon1", EKume.TRENDYOL_SUPER_LIG, EBolge.TURKIYE,
+		                    databaseModel.ligDB,
 		                               LocalDate.of(2024, 8, 20));
 		
 		
-		turkiyeSuperLigi.getTakimIDList()
+		trendyolSuperLig.getTakimIDList()
 		                .addAll(List.of(takim1.getId(), takim2.getId(), takim3.getId(), takim4.getId(), takim5.getId(),
 		                                takim6.getId(), takim7.getId(), takim8.getId(), takim9.getId(), takim10.getId(),
 		                                takim11.getId(), takim12.getId(), takim13.getId(), takim14.getId(), takim15.getId(),
@@ -131,11 +138,41 @@ public class LigModel {
 		takimIdToNameMap.put(takim19.getId(), takim19.getTakimIsim());
 		
 		
+		
 		FiksturGenerator
-				fiksturGenerator = new FiksturGenerator(turkiyeSuperLigi.getTakimIDList(), LocalDate.of(2024, 8, 20), takimIdToNameMap);
+				fiksturGenerator = new FiksturGenerator(trendyolSuperLig.getTakimIDList(), LocalDate.of(2024, 8, 20),
+				                                        takimIdToNameMap);
 		fiksturGenerator.generateFikstur();
 		fiksturGenerator.fiksturuYazdir(takimIdToNameMap);
+	}
+	public void macSonucuIsle(Istatistik evsahibiIstatistik,Istatistik  misafirIstatistik,int evsahibiGol,
+	                          int misafirGol){
 		
+		evsahibiIstatistik.setAtilanGol(evsahibiIstatistik.getAtilanGol()+evsahibiGol);
+		misafirIstatistik.setAtilanGol(misafirIstatistik.getAtilanGol()+misafirGol);
+		
+		if (evsahibiGol>misafirGol){
+			
+			evsahibiIstatistik.setGalibiyet(evsahibiIstatistik.getGalibiyet()+1);
+			misafirIstatistik.setMaglubiyet(misafirIstatistik.getMaglubiyet()+1);
+		}
+		else if (evsahibiGol<misafirGol) {
+			misafirIstatistik.setGalibiyet(misafirIstatistik.getGalibiyet()+1);
+			evsahibiIstatistik.setMaglubiyet(evsahibiIstatistik.getMaglubiyet()+1);
+		}else{
+			evsahibiIstatistik.setBeraberlik(evsahibiIstatistik.getBeraberlik()+1);
+			misafirIstatistik.setBeraberlik(misafirIstatistik.getBeraberlik()+1);
+		}
+		databaseModel.istatistikDB.update(evsahibiIstatistik);
+		databaseModel.istatistikDB.update(misafirIstatistik);
+		
+		puanTablosu.put(evsahibiIstatistik.getTakimID(),puanHesapla(evsahibiIstatistik));
+		puanTablosu.put(misafirIstatistik.getTakimID(),puanHesapla(misafirIstatistik));
+		
+	}
+	
+	private int puanHesapla(Istatistik istatistik){
+		return istatistik.getGalibiyet()*3+istatistik.getBeraberlik();
 	}
 	
 	

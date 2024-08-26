@@ -61,6 +61,16 @@ public class FileIOWriter {
 			e.printStackTrace();
 		}
 	}
+	public static void musabakalariDosyayaYazdir(DatabaseModel databaseModel){
+		File outputFile=new File(dosya,"musabakaDB.bin");
+		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(outputFile))) {
+			oos.writeObject(databaseModel.musabakaDB.findAll());
+		}
+		
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	
 
 	
@@ -70,6 +80,7 @@ public class FileIOWriter {
 		ligleriDosyayaYazdir(databaseModel);
 		menajerleriDosyayaYazdir(databaseModel);
 		stadyumlariDosyayaYazdir(databaseModel);
+		musabakalariDosyayaYazdir(databaseModel);
 		
 	}
 	

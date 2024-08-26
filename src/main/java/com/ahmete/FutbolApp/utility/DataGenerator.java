@@ -96,11 +96,11 @@ public class DataGenerator {
 	
 		
 		
-		Lig turkiyeSuperLigi =
-				new Lig("Türkiye super lig", "sezon1", EKume.TRENDYOL_SUPER_LIG, EBolge.TURKIYE, ligDB,
+		Lig trendYolSuperLig =
+				new Lig("Trendyol Süper Lig", "sezon1", EKume.TRENDYOL_SUPER_LIG, EBolge.TURKIYE, ligDB,
 				        LocalDate.of(2024, 8, 20));
 		
-		turkiyeSuperLigi.getTakimIDList()
+		trendYolSuperLig.getTakimIDList()
 		                .addAll(List.of(takim1.getId(), takim2.getId(), takim3.getId(), takim4.getId(), takim5.getId()
 				                , takim6.getId(), takim7.getId(), takim8.getId(), takim9.getId(), takim10.getId(),
 				                        takim11.getId(), takim12.getId(), takim13.getId(), takim14.getId(),
@@ -133,6 +133,7 @@ public class DataGenerator {
 		
 		
 	}
+	
 	public  static void  generateStadyum(StadyumDB stadyumDB){
 		Stadyum galatasarayStadyumu = new Stadyum("Türk Telekom Stadyumu", "İstanbul", 52460,stadyumDB);
 		Stadyum fenerbahceStadyumu = new Stadyum("Ülker Stadyumu", "İstanbul", 50609,stadyumDB);

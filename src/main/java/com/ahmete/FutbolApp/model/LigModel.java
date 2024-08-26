@@ -145,6 +145,7 @@ public class LigModel {
 		fiksturGenerator.generateFikstur();
 		fiksturGenerator.fiksturuYazdir(takimIdToNameMap);
 	}
+	
 	public void macSonucuIsle(Istatistik evsahibiIstatistik,Istatistik  misafirIstatistik,int evsahibiGol,
 	                          int misafirGol){
 		

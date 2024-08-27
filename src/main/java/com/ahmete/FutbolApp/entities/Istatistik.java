@@ -1,7 +1,7 @@
 package com.ahmete.FutbolApp.entities;
 
 public class Istatistik extends BaseEntity{
- static int istatistikID=0;
+ static int istatistikIDCount=0;
 	
 	private Integer ligID;
 	private Integer takimID;
@@ -19,6 +19,7 @@ public class Istatistik extends BaseEntity{
 		this.maglubiyet = maglubiyet;
 		this.takimID = takimID;
 		this.yenilenGol = yenilenGol;
+		this.id=++istatistikIDCount;
 	}
 	
 	public Integer getAtilanGol() {
@@ -46,11 +47,11 @@ public class Istatistik extends BaseEntity{
 	}
 	
 	public static int getIstatistikID() {
-		return istatistikID;
+		return istatistikIDCount;
 	}
 	
 	public static void setIstatistikID(int istatistikID) {
-		Istatistik.istatistikID = istatistikID;
+		Istatistik.istatistikIDCount = istatistikID;
 	}
 	
 	public Integer getLigID() {

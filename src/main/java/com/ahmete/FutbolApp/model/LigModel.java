@@ -15,35 +15,35 @@ import com.ahmete.FutbolApp.utility.enums.EKume;
 import com.ahmete.FutbolApp.utility.enums.ERenkler;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class LigModel {
-	private DatabaseModel databaseModel;
-	
-	//TODO lig puan listesi
 	private int ligID;
 	private String ligIsmi;
-	private List<Takim> takimlar;
-	private String sezon;
 	private EKume kume;
 	private EBolge bolge;
+	private String sezon;
 	private LocalDate baslangicTarihi;
-	private Map<Integer, List<MusabakaModel>> fikstur=new HashMap<>();
-    private Map<Integer,Integer>	puanTablosu;
-	                      //puan
-
-	public LigModel(Lig lig, List<Takim> takimlar,DatabaseModel databaseModel) {
-		this.baslangicTarihi = lig.getBaslangicTarihi();
-		this.bolge = lig.getBolge();
-		this.kume = lig.getKume();
-		this.ligID = lig.getId();
-		this.ligIsmi = lig.getLigIsmi();
-		this.sezon = lig.getSezon();
-		this.takimlar = takimlar;
-		this.databaseModel=databaseModel;
-		puanTablosu=new HashMap<>();
+	private List<Integer> takimIDList;
+	private Map<Integer, String> takimIDtoIsim;
+	private Map<Integer, List<MusabakaModel>> fikstur;
+	
+	private DatabaseModel databaseModel;
+	
+	public LigModel(int ligID, String ligIsmi, EKume kume, EBolge bolge, String sezon, LocalDate baslangicTarihi, DatabaseModel databaseModel) {
+		this.ligID = ligID;
+		this.ligIsmi = ligIsmi;
+		this.kume = kume;
+		this.bolge = bolge;
+		this.sezon = sezon;
+		this.baslangicTarihi = baslangicTarihi;
+		this.databaseModel = databaseModel;
+		this.takimIDList = new ArrayList<>();
+		this.takimIDtoIsim = new HashMap<>();
+		
 	}
 	
 	public LigModel(DatabaseModel databaseModel) {
@@ -60,7 +60,7 @@ public class LigModel {
 		System.out.println("Lig Kume                 : " + kume);
 		System.out.println("Lig Sezon                : " + sezon);
 		System.out.println("Lig Baslangic tarihi     : " + baslangicTarihi);
-		System.out.println("Takimlar                 : " + takimlar);
+		System.out.println("Takimlar                 : " + takimIDList);
 		
 		if (fikstur != null) {
 			System.out.println("Fikstur:");
@@ -76,6 +76,7 @@ public class LigModel {
 		
 		System.out.println("----------------------------");
 	}
+
 	
 	public void setFikstur(Map<Integer, List<MusabakaModel>> fikstur) {
 		this.fikstur = fikstur;
@@ -104,16 +105,16 @@ public class LigModel {
 		Takim takim19 = new Takim("Bodrum FK",19, ERenkler.YESIL_BEYAZ, "Fikret Öztürk", "1931", databaseModel.takimDB);
 		
 		
-		Lig trendyolSuperLig = new Lig("Türkiye Süper Lig", "sezon1", EKume.TRENDYOL_SUPER_LIG, EBolge.TURKIYE,
-		                    databaseModel.ligDB,
-		                               LocalDate.of(2024, 8, 20));
+		Lig trendYolSuperLig =
+				new Lig("Trendyol Süper Lig", "sezon1", EKume.TRENDYOL_SUPER_LIG, EBolge.TURKIYE, databaseModel.ligDB,
+				        LocalDate.of(2024, 8, 20));
 		
-		
-		trendyolSuperLig.getTakimIDList()
-		                .addAll(List.of(takim1.getId(), takim2.getId(), takim3.getId(), takim4.getId(), takim5.getId(),
-		                                takim6.getId(), takim7.getId(), takim8.getId(), takim9.getId(), takim10.getId(),
-		                                takim11.getId(), takim12.getId(), takim13.getId(), takim14.getId(), takim15.getId(),
-		                                takim16.getId(), takim17.getId(), takim18.getId(), takim19.getId()));
+		trendYolSuperLig.getTakimIDList()
+		                .addAll(List.of(takim1.getId(), takim2.getId(), takim3.getId(), takim4.getId(), takim5.getId()
+				                , takim6.getId(), takim7.getId(), takim8.getId(), takim9.getId(), takim10.getId(),
+				                        takim11.getId(), takim12.getId(), takim13.getId(), takim14.getId(),
+				                        takim15.getId(), takim16.getId(), takim17.getId(), takim18.getId(),
+				                        takim19.getId()));
 		
 		
 		Map<Integer, String> takimIdToNameMap = new HashMap<>();
@@ -140,41 +141,15 @@ public class LigModel {
 		
 		
 		FiksturGenerator
-				fiksturGenerator = new FiksturGenerator(trendyolSuperLig.getTakimIDList(), LocalDate.of(2024, 8, 20),
+				fiksturGenerator = new FiksturGenerator(trendYolSuperLig.getTakimIDList(), LocalDate.of(2024, 8, 20),
 				                                        takimIdToNameMap);
 		fiksturGenerator.generateFikstur();
-		fiksturGenerator.fiksturuYazdir(takimIdToNameMap);
-	}
-	
-	public void macSonucuIsle(Istatistik evsahibiIstatistik,Istatistik  misafirIstatistik,int evsahibiGol,
-	                          int misafirGol){
-		
-		evsahibiIstatistik.setAtilanGol(evsahibiIstatistik.getAtilanGol()+evsahibiGol);
-		misafirIstatistik.setAtilanGol(misafirIstatistik.getAtilanGol()+misafirGol);
-		
-		if (evsahibiGol>misafirGol){
-			
-			evsahibiIstatistik.setGalibiyet(evsahibiIstatistik.getGalibiyet()+1);
-			misafirIstatistik.setMaglubiyet(misafirIstatistik.getMaglubiyet()+1);
-		}
-		else if (evsahibiGol<misafirGol) {
-			misafirIstatistik.setGalibiyet(misafirIstatistik.getGalibiyet()+1);
-			evsahibiIstatistik.setMaglubiyet(evsahibiIstatistik.getMaglubiyet()+1);
-		}else{
-			evsahibiIstatistik.setBeraberlik(evsahibiIstatistik.getBeraberlik()+1);
-			misafirIstatistik.setBeraberlik(misafirIstatistik.getBeraberlik()+1);
-		}
-		databaseModel.istatistikDB.update(evsahibiIstatistik);
-		databaseModel.istatistikDB.update(misafirIstatistik);
-		
-		puanTablosu.put(evsahibiIstatistik.getTakimID(),puanHesapla(evsahibiIstatistik));
-		puanTablosu.put(misafirIstatistik.getTakimID(),puanHesapla(misafirIstatistik));
+		fiksturGenerator.fiksturuYazdir();
 		
 	}
 	
-	private int puanHesapla(Istatistik istatistik){
-		return istatistik.getGalibiyet()*3+istatistik.getBeraberlik();
-	}
+	
+	
 	
 	
 }

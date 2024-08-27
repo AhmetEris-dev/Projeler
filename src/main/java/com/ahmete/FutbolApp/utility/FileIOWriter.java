@@ -2,8 +2,11 @@ package com.ahmete.FutbolApp.utility;
 
 import com.ahmete.FutbolApp.Databases.*;
 import com.ahmete.FutbolApp.model.DatabaseModel;
+import com.ahmete.FutbolApp.model.MusabakaModel;
 
 import java.io.*;
+import java.util.List;
+import java.util.Map;
 
 public class FileIOWriter {
 	private static final File dosya = new File("C:\\FutbolAPPDatabase");
@@ -30,8 +33,8 @@ public class FileIOWriter {
 		}
 	}
 	
-	public static void ligleriDosyayaYazdir(DatabaseModel databaseModel){
-		File outputFile =new File(dosya,"ligDB.bin");
+	public static void ligleriDosyayaYazdir(DatabaseModel databaseModel) {
+		File outputFile = new File(dosya, "ligDB.bin");
 		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(outputFile))) {
 			oos.writeObject(databaseModel.ligDB.findAll());
 		}
@@ -41,8 +44,8 @@ public class FileIOWriter {
 		}
 	}
 	
-	public static void menajerleriDosyayaYazdir(DatabaseModel databaseModel){
-		File outputFile=new File(dosya,"menajerDB.bin");
+	public static void menajerleriDosyayaYazdir(DatabaseModel databaseModel) {
+		File outputFile = new File(dosya, "menajerDB.bin");
 		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(outputFile))) {
 			oos.writeObject(databaseModel.menajerDB.findAll());
 		}
@@ -51,8 +54,9 @@ public class FileIOWriter {
 			e.printStackTrace();
 		}
 	}
-	public static void stadyumlariDosyayaYazdir(DatabaseModel databaseModel){
-		File outputFile=new File(dosya,"stadyumDB.bin");
+	
+	public static void stadyumlariDosyayaYazdir(DatabaseModel databaseModel) {
+		File outputFile = new File(dosya, "stadyumDB.bin");
 		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(outputFile))) {
 			oos.writeObject(databaseModel.stadyumDB.findAll());
 		}
@@ -61,28 +65,49 @@ public class FileIOWriter {
 			e.printStackTrace();
 		}
 	}
-	public static void musabakalariDosyayaYazdir(DatabaseModel databaseModel){
-		File outputFile=new File(dosya,"musabakaDB.bin");
+	
+	//	public static void musabakalariDosyayaYazdir(DatabaseModel databaseModel){
+//		File outputFile=new File(dosya,"musabakaDB.bin");
+//		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(outputFile))) {
+//			oos.writeObject(databaseModel.musabakaDB.findAll());
+//		}
+//
+//		catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//	}
+//	public static void istatistikleriDosyayaYaz(DatabaseModel databaseModel) {
+//		File outputFile = new File(dosya, "istatistikDB.bin");
+//		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(outputFile))) {
+//			oos.writeObject(databaseModel.istatistikDB.findAll());
+//		}
+//
+//		catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//	}
+//
+	
+	public static void nesneleriYazdir(DatabaseModel databaseModel) {
+		futbolculariDosyayaYazdir(databaseModel);
+		takimlariDosyayaYazdir(databaseModel);
+		ligleriDosyayaYazdir(databaseModel);
+		menajerleriDosyayaYazdir(databaseModel);
+		stadyumlariDosyayaYazdir(databaseModel);
+//		musabakalariDosyayaYazdir(databaseModel);
+//		istatistikleriDosyayaYaz(databaseModel);
+		
+	}
+	
+	
+	public void writeFiksturToFile(Map<Integer, List<MusabakaModel>> fikstur, DatabaseModel databaseModel) {
+		File outputFile = new File(dosya, "musabakaDB.bin");
 		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(outputFile))) {
-			oos.writeObject(databaseModel.musabakaDB.findAll());
+			oos.writeObject(databaseModel.istatistikDB.findAll());
 		}
 		
 		catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
-
-	
-	public static void nesneleriYazdir(DatabaseModel databaseModel){
-		futbolculariDosyayaYazdir(databaseModel);
-		takimlariDosyayaYazdir(databaseModel);
-		ligleriDosyayaYazdir(databaseModel);
-		menajerleriDosyayaYazdir(databaseModel);
-		stadyumlariDosyayaYazdir(databaseModel);
-		musabakalariDosyayaYazdir(databaseModel);
-		
-	}
-	
-	
 }

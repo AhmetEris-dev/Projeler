@@ -1,14 +1,20 @@
 
 package com.ahmete.FutbolApp;
 
+import com.ahmete.FutbolApp.entities.Istatistik;
 import com.ahmete.FutbolApp.model.DatabaseModel;
 import com.ahmete.FutbolApp.model.LigModel;
 import com.ahmete.FutbolApp.modules.MenajerModule;
+import com.ahmete.FutbolApp.modules.MusabakaModule;
 import com.ahmete.FutbolApp.modules.TakimModule;
 import com.ahmete.FutbolApp.utility.DataGenerator;
+import com.ahmete.FutbolApp.utility.FiksturGenerator;
 import com.ahmete.FutbolApp.utility.FileIOReader;
 import com.ahmete.FutbolApp.utility.FileIOWriter;
+import com.ahmete.FutbolApp.utility.enums.EBolge;
+import com.ahmete.FutbolApp.utility.enums.EKume;
 
+import java.time.LocalDate;
 import java.util.*;
 
 public class FutbollAppRunner {
@@ -21,10 +27,11 @@ public class FutbollAppRunner {
 
 //		DataGenerator.generateData(databaseModel);
 //		FileIOWriter.nesneleriYazdir(databaseModel);
-//		FileIOReader.nesneleriOku(databaseModel);
-//
-//		startApplication();
-	
+		FileIOReader.nesneleriOku(databaseModel);
+////
+		startApplication();
+		
+		
 	}
 	
 	
@@ -40,7 +47,7 @@ public class FutbollAppRunner {
 		System.out.println("1- Menajer Islemleri");
 		System.out.println("2- Takim Islemleri");
 		System.out.println("3- Musabaka Islemleri");
-		System.out.println("4- Fiksturu goruntule");
+		System.out.println("4- ");
 		System.out.println("0- Cikis");
 		System.out.println("Secimiz: ");
 		int opt = scanner.nextInt();
@@ -59,10 +66,10 @@ public class FutbollAppRunner {
 				break;
 			}
 			case 3:{
-			
+				MusabakaModule.musabakaModule(databaseModel);
 			}
 			case 4:{
-				ligModel.fiksturOlustur(databaseModel);
+			
 				break;
 			}
 			case 0: {

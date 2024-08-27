@@ -12,6 +12,7 @@ public class FiksturGenerator {
 	private static Map<Integer, List<Musabaka>> fikstur = new HashMap<>();
 	private LocalDate sezonBaslangic;
 	private Map<Integer, String> takimIDtoIsim;
+	private Map<Integer, Integer> puanTablosu = new HashMap<>();
 	
 	public FiksturGenerator(List<Integer> takimIDleri, LocalDate sezonBaslangic, Map<Integer, String> takimIDtoIsim) {
 		this.takimIDleri = takimIDleri;
@@ -31,6 +32,7 @@ public class FiksturGenerator {
 		
 		List<Integer> originalTakimlar = new ArrayList<>(takimIDleri);
 		
+		// İlk yarı
 		for (int hafta = 0; hafta < takimSayisi - 1; hafta++) {
 			List<Musabaka> musabakalar = new ArrayList<>();
 			
@@ -45,13 +47,16 @@ public class FiksturGenerator {
 					misafirTakim = takimIDleri.get(i);
 				}
 				
-				musabakalar.add(new Musabaka(evSahibi, misafirTakim, takimIDtoIsim));
+				if (evSahibi != -1 && misafirTakim != -1) { // BAY hafta kontrolü
+					musabakalar.add(new Musabaka(evSahibi, misafirTakim, takimIDtoIsim));
+				}
 			}
 			
 			fikstur.put(hafta + 1, musabakalar);
 			takimIDleri.add(1, takimIDleri.remove(takimIDleri.size() - 1));
 		}
 		
+		// İkinci yarı
 		for (int hafta = 0; hafta < takimSayisi - 1; hafta++) {
 			List<Musabaka> musabakalar = new ArrayList<>();
 			
@@ -66,7 +71,9 @@ public class FiksturGenerator {
 					misafirTakim = takimIDleri.get(takimSayisi - 1 - i);
 				}
 				
-				musabakalar.add(new Musabaka(evSahibi, misafirTakim, takimIDtoIsim));
+				if (evSahibi != -1 && misafirTakim != -1) { // BAY hafta kontrolü
+					musabakalar.add(new Musabaka(evSahibi, misafirTakim, takimIDtoIsim));
+				}
 			}
 			
 			fikstur.put(hafta + takimSayisi, musabakalar);
@@ -74,7 +81,7 @@ public class FiksturGenerator {
 		}
 		
 		gunleriAta();
-		
+		puanTablosunuGuncelle();
 	}
 	
 	private void gunleriAta() {
@@ -90,8 +97,42 @@ public class FiksturGenerator {
 			musabakalar.sort(Comparator.comparing(Musabaka::getMusabakaTarihi));
 		}
 	}
-	public void fiksturuYazdir(Map<Integer, String> takimIdToNameMap) {
 	
+	public void puanTablosunuGuncelle() {
+		Random random = new Random();
+		for (List<Musabaka> musabakalar : fikstur.values()) {
+			for (Musabaka musabaka : musabakalar) {
+				int sonuc = random.nextInt(3); // 0 = ev sahibi galibiyeti, 1 = misafir takım galibiyeti, 2 = beraberlik
+				Integer evSahibi = musabaka.getEvSahibiID();
+				Integer misafirTakim = musabaka.getMisafirTakimID();
+				
+				switch (sonuc) {
+					case 0:
+						puanTablosu.put(evSahibi, puanTablosu.getOrDefault(evSahibi, 0) + 3);
+						break;
+					case 1:
+						puanTablosu.put(misafirTakim, puanTablosu.getOrDefault(misafirTakim, 0) + 3);
+						break;
+					case 2:
+						puanTablosu.put(evSahibi, puanTablosu.getOrDefault(evSahibi, 0) + 1);
+						puanTablosu.put(misafirTakim, puanTablosu.getOrDefault(misafirTakim, 0) + 1);
+						break;
+				}
+			}
+		}
+	}
+	
+	public void puanTablosunuYazdir() {
+		System.out.println("Puan Tablosu:");
+		puanTablosu.entrySet().stream()
+		           .sorted((e1, e2) -> e2.getValue().compareTo(e1.getValue()))
+		           .forEach(entry -> {
+			           String takimIsmi = takimIDtoIsim.get(entry.getKey());
+			           System.out.println(takimIsmi + ": " + entry.getValue() + " puan");
+		           });
+	}
+	
+	public void fiksturuYazdir() {
 		for (Map.Entry<Integer, List<Musabaka>> entry : fikstur.entrySet()) {
 			Integer hafta = entry.getKey();
 			List<Musabaka> musabakalar = entry.getValue();

@@ -6,7 +6,7 @@ import com.ahmete.FutbolApp.entities.Musabaka;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
+
 
 public class FiksturGenerator {
 	private List<Integer> takimIDleri;
@@ -38,8 +38,6 @@ public class FiksturGenerator {
 			takimIDleri.add(-1); // "BAY" için -1 kullanarak işaretleyelim
 			takimSayisi++;
 		}
-		
-		List<Integer> originalTakimlar = new ArrayList<>(takimIDleri);
 		
 		// İlk yarı
 		for (int hafta = 0; hafta < takimSayisi - 1; hafta++) {
@@ -88,9 +86,9 @@ public class FiksturGenerator {
 			fikstur.put(hafta + takimSayisi, musabakalar);
 			takimIDleri.add(1, takimIDleri.remove(takimIDleri.size() - 1));
 		}
-		
 		gunleriAta();
-		puanTablosunuGuncelle();
+		
+		
 	}
 	
 	private void gunleriAta() {
@@ -111,8 +109,8 @@ public class FiksturGenerator {
 		Random random = new Random();
 		for (List<Musabaka> musabakalar : fikstur.values()) {
 			for (Musabaka musabaka : musabakalar) {
-				int evSahibiGol = random.nextInt(5);  // Ev sahibi takımın attığı gol
-				int misafirTakimGol = random.nextInt(5);  // Misafir takımın attığı gol
+				int evSahibiGol = random.nextInt(5);
+				int misafirTakimGol = random.nextInt(5);
 				
 				Integer evSahibi = musabaka.getEvSahibiID();
 				Integer misafirTakim = musabaka.getMisafirTakimID();
@@ -136,21 +134,22 @@ public class FiksturGenerator {
 	
 	public void puanTablosunuYazdir() {
 		System.out.println("Puan Tablosu:");
-		System.out.printf("%-20s %-3s %-3s %-3s %-3s %-3s %-3s%n",
-		                  "Takım İsmi", "G", "B", "M", "AG", "YG", "Puan");
+		System.out.printf("%-20s %-3s %-3s %-3s %-3s %-3s %-3s %-3s%n",
+		                  "Takım İsmi", "G", "B", "M", "AG", "YG", "AV", "Puan");
 		
 		takimIstatistikleri.entrySet().stream()
 		                   .sorted((e1, e2) -> Integer.compare(e2.getValue().getPuan(), e1.getValue().getPuan()))
 		                   .forEach(entry -> {
 			                   String takimIsmi = takimIDtoIsim.get(entry.getKey());
 			                   Istatistik istatistik = entry.getValue();
-			                   System.out.printf("%-20s %-3d %-3d %-3d %-3d %-3d %-3d%n",
+			                   System.out.printf("%-20s %-3d %-3d %-3d %-3d %-3d %-3d %-3d%n",
 			                                     takimIsmi,
 			                                     istatistik.getGalibiyet(),
 			                                     istatistik.getBeraberlik(),
 			                                     istatistik.getMaglubiyet(),
 			                                     istatistik.getAtılanGol(),
 			                                     istatistik.getYenilenGol(),
+												 istatistik.getAveraj(),
 			                                     istatistik.getPuan());
 		                   });
 	}
@@ -165,5 +164,6 @@ public class FiksturGenerator {
 			}
 			System.out.println();
 		}
+		
 	}
 }

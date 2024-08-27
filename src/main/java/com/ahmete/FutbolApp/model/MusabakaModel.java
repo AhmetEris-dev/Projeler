@@ -7,9 +7,7 @@ import com.ahmete.FutbolApp.Databases.TakimDB;
 import com.ahmete.FutbolApp.entities.*;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 public class MusabakaModel {
 	private DatabaseModel databaseModel;
@@ -28,7 +26,7 @@ public class MusabakaModel {
 	private String hakemIsmi;
 	private LocalDate musabakaTarihi;
 	private Lig ligID;
-	private Map<Integer, Integer> puanTablosu;
+	
 
 	
 	public MusabakaModel(TakimDB takimDB, LigDB ligDB, FutbolcuDB futbolcuDB, StadyumDB stadyumDB, Musabaka musabaka,
@@ -66,32 +64,4 @@ public class MusabakaModel {
 		System.out.println("------------------------------------");
 	}
 	
-	public void macSonucuIsle(Istatistik evsahibiIstatistik, Istatistik misafirIstatistik, int evsahibiGol, int misafirGol) {
-		
-		evsahibiIstatistik.setAtilanGol(evsahibiIstatistik.getAtilanGol() + evsahibiGol);
-		misafirIstatistik.setAtilanGol(misafirIstatistik.getAtilanGol() + misafirGol);
-		
-		if (evsahibiGol > misafirGol) {
-			evsahibiIstatistik.setGalibiyet(evsahibiIstatistik.getGalibiyet() + 1);
-			misafirIstatistik.setMaglubiyet(misafirIstatistik.getMaglubiyet() + 1);
-		} else if (evsahibiGol < misafirGol) {
-			misafirIstatistik.setGalibiyet(misafirIstatistik.getGalibiyet() + 1);
-			evsahibiIstatistik.setMaglubiyet(evsahibiIstatistik.getMaglubiyet() + 1);
-		} else {
-			evsahibiIstatistik.setBeraberlik(evsahibiIstatistik.getBeraberlik() + 1);
-			misafirIstatistik.setBeraberlik(misafirIstatistik.getBeraberlik() + 1);
-		}
-		evsahibiIstatistik.setYenilenGol(evsahibiIstatistik.getYenilenGol() + misafirGol);
-		misafirIstatistik.setYenilenGol(misafirIstatistik.getYenilenGol() + evsahibiGol);
-		
-		databaseModel.istatistikDB.save(evsahibiIstatistik);
-		databaseModel.istatistikDB.save(misafirIstatistik);
-		
-		puanTablosu.put(evsahibiIstatistik.getTakimID(), puanHesapla(evsahibiIstatistik));
-		puanTablosu.put(misafirIstatistik.getTakimID(), puanHesapla(misafirIstatistik));
-	}
-	
-	private int puanHesapla(Istatistik istatistik){
-		return istatistik.getGalibiyet()*3+istatistik.getBeraberlik();
-	}
 }

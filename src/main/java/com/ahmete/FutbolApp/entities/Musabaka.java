@@ -31,16 +31,19 @@ public class Musabaka extends BaseEntity {
 		this.musabakaTarihi = musabakaTarihi;
 		this.ligID = ligID;
 		musabakaDB.save(this);
+		this.id=++musabakaIDCOunt;
 	}
 	
 	public Musabaka(Integer evSahibiID, Integer misafirTakimID) {
 		this.evSahibiID = evSahibiID;
 		this.misafirTakimID = misafirTakimID;
+		this.id=++musabakaIDCOunt;
 	}
 	public Musabaka(Integer evSahibiID, Integer misafirTakimID, Map<Integer, String> takimIDtoIsim) {
 		this.evSahibiID = evSahibiID;
 		this.misafirTakimID = misafirTakimID;
 		this.takimIDtoIsim = takimIDtoIsim;
+		this.id=++musabakaIDCOunt;
 	}
 	
 

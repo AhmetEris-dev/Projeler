@@ -1,6 +1,7 @@
 package com.ahmete.FutbolApp.modules;
 
 
+import com.ahmete.FutbolApp.entities.Istatistik;
 import com.ahmete.FutbolApp.entities.Lig;
 import com.ahmete.FutbolApp.entities.Takim;
 import com.ahmete.FutbolApp.model.DatabaseModel;
@@ -20,6 +21,7 @@ public class MusabakaModule {
 	private static DatabaseModel databaseModel;
 	private static final Scanner scanner = new Scanner(System.in);
 	private static LigModel ligModel = new LigModel(databaseModel);
+	private Map<Integer, Integer> puanTablosu;
 	
 	private static Lig trendYolSuperLig;
 	private static Map<Integer, String> takimIdToNameMap;
@@ -140,4 +142,35 @@ public class MusabakaModule {
 		fiksturGenerator.puanTablosunuGuncelle();
 		fiksturGenerator.puanTablosunuYazdir();
 	}
+	
+//	public void macSonucuIsle(Istatistik evsahibiIstatistik, Istatistik misafirIstatistik, int evsahibiGol, int misafirGol) {
+//
+//		evsahibiIstatistik.setAtilanGol(evsahibiIstatistik.getAtilanGol() + evsahibiGol);
+//		misafirIstatistik.setAtilanGol(misafirIstatistik.getAtilanGol() + misafirGol);
+//
+//		if (evsahibiGol > misafirGol) {
+//			evsahibiIstatistik.setGalibiyet(evsahibiIstatistik.getGalibiyet() + 1);
+//			misafirIstatistik.setMaglubiyet(misafirIstatistik.getMaglubiyet() + 1);
+//		} else if (evsahibiGol < misafirGol) {
+//			misafirIstatistik.setGalibiyet(misafirIstatistik.getGalibiyet() + 1);
+//			evsahibiIstatistik.setMaglubiyet(evsahibiIstatistik.getMaglubiyet() + 1);
+//		} else {
+//			evsahibiIstatistik.setBeraberlik(evsahibiIstatistik.getBeraberlik() + 1);
+//			misafirIstatistik.setBeraberlik(misafirIstatistik.getBeraberlik() + 1);
+//		}
+//		evsahibiIstatistik.setYenilenGol(evsahibiIstatistik.getYenilenGol() + misafirGol);
+//		misafirIstatistik.setYenilenGol(misafirIstatistik.getYenilenGol() + evsahibiGol);
+//
+//		databaseModel.istatistikDB.save(evsahibiIstatistik);
+//		databaseModel.istatistikDB.save(misafirIstatistik);
+//
+//		puanTablosu.put(evsahibiIstatistik.getTakimID(), puanHesapla(evsahibiIstatistik));
+//		puanTablosu.put(misafirIstatistik.getTakimID(), puanHesapla(misafirIstatistik));
+//	}
+//
+//	private int puanHesapla(Istatistik istatistik){
+//		return istatistik.getGalibiyet()*3+istatistik.getBeraberlik();
+//	}
+
+	
 }

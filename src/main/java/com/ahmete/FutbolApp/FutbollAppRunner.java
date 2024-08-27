@@ -28,9 +28,9 @@ public class FutbollAppRunner {
 //		DataGenerator.generateData(databaseModel);
 //		FileIOWriter.nesneleriYazdir(databaseModel);
 		FileIOReader.nesneleriOku(databaseModel);
-////
+
 		startApplication();
-		
+//
 		
 	}
 	

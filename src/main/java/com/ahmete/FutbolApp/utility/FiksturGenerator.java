@@ -49,7 +49,8 @@ public class FiksturGenerator {
 				if (hafta % 2 == 0) {
 					evSahibi = takimIDleri.get(i);
 					misafirTakim = takimIDleri.get(takimSayisi - 1 - i);
-				} else {
+				}
+				else {
 					evSahibi = takimIDleri.get(takimSayisi - 1 - i);
 					misafirTakim = takimIDleri.get(i);
 				}
@@ -73,7 +74,8 @@ public class FiksturGenerator {
 				if (hafta % 2 == 0) {
 					evSahibi = takimIDleri.get(takimSayisi - 1 - i);
 					misafirTakim = takimIDleri.get(i);
-				} else {
+				}
+				else {
 					evSahibi = takimIDleri.get(i);
 					misafirTakim = takimIDleri.get(takimSayisi - 1 - i);
 				}
@@ -118,10 +120,12 @@ public class FiksturGenerator {
 				if (evSahibiGol > misafirTakimGol) {
 					takimIstatistikleri.get(evSahibi).galibiyetEkle();
 					takimIstatistikleri.get(misafirTakim).maglubiyetEkle();
-				} else if (misafirTakimGol > evSahibiGol) {
+				}
+				else if (misafirTakimGol > evSahibiGol) {
 					takimIstatistikleri.get(misafirTakim).galibiyetEkle();
 					takimIstatistikleri.get(evSahibi).maglubiyetEkle();
-				} else {
+				}
+				else {
 					takimIstatistikleri.get(evSahibi).beraberlikEkle();
 					takimIstatistikleri.get(misafirTakim).beraberlikEkle();
 				}
@@ -134,24 +138,23 @@ public class FiksturGenerator {
 	
 	public void puanTablosunuYazdir() {
 		System.out.println("Puan Tablosu:");
-		System.out.printf("%-20s %-3s %-3s %-3s %-3s %-3s %-3s %-3s%n",
-		                  "Takım İsmi", "G", "B", "M", "AG", "YG", "AV", "Puan");
+		System.out.printf("%-20s %-3s %-3s %-3s %-3s %-3s %-3s %-3s%n", "Takım İsmi", "G", "B", "M", "AG", "YG", "AV",
+		                  "Puan");
 		
-		takimIstatistikleri.entrySet().stream()
-		                   .sorted((e1, e2) -> Integer.compare(e2.getValue().getPuan(), e1.getValue().getPuan()))
-		                   .forEach(entry -> {
-			                   String takimIsmi = takimIDtoIsim.get(entry.getKey());
-			                   Istatistik istatistik = entry.getValue();
-			                   System.out.printf("%-20s %-3d %-3d %-3d %-3d %-3d %-3d %-3d%n",
-			                                     takimIsmi,
-			                                     istatistik.getGalibiyet(),
-			                                     istatistik.getBeraberlik(),
-			                                     istatistik.getMaglubiyet(),
-			                                     istatistik.getAtılanGol(),
-			                                     istatistik.getYenilenGol(),
-												 istatistik.getAveraj(),
-			                                     istatistik.getPuan());
-		                   });
+		takimIstatistikleri.entrySet().stream().sorted((e1, e2) -> {
+			int puanKarsilastirma = Integer.compare(e2.getValue().getPuan(), e1.getValue().getPuan());
+			if (puanKarsilastirma != 0) {
+				return puanKarsilastirma;
+			}
+			
+			return Integer.compare(e2.getValue().getAveraj(), e1.getValue().getAveraj());
+		}).forEach(entry -> {
+			String takimIsmi = takimIDtoIsim.get(entry.getKey());
+			Istatistik istatistik = entry.getValue();
+			System.out.printf("%-20s %-3d %-3d %-3d %-3d %-3d %-3d %-3d%n", takimIsmi, istatistik.getGalibiyet(),
+			                  istatistik.getBeraberlik(), istatistik.getMaglubiyet(), istatistik.getAtılanGol(),
+			                  istatistik.getYenilenGol(), istatistik.getAveraj(), istatistik.getPuan());
+		});
 	}
 	
 	public void fiksturuYazdir() {

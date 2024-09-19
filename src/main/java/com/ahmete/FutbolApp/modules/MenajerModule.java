@@ -23,8 +23,8 @@ public class MenajerModule {
 		int opt;
 		do {
 			
-			opt = menajerGirisMenu();
-			menajerGirisMenuOpsiyonlari(opt);
+			
+			opt =menajerGirisMenuOpsiyonlari(menajerGirisMenu());
 		} while (opt != 0);
 	}
 	
@@ -67,7 +67,6 @@ public class MenajerModule {
 				menajerMenuOpsiyonlari(menajerMenu());
 				break;
 			}
-			
 			case 2: {
 				System.out.println("Ana menuye donuluyor");
 				break;
@@ -99,15 +98,18 @@ public class MenajerModule {
 		switch (opt) {
 			case 1: {
 				kulubumunDetaylariniGoruntule();
+				menajerMenuOpsiyonlari( menajerMenu());
 				break;
 			}
 			case 2: {
 				kulubumunFutbolculariniGoruntule();
+				menajerMenuOpsiyonlari( menajerMenu());
 				break;
 			}
 			case 3: {
 				takimlerinOzetBilgileriniGoruntule();
 				takimIdyeGoreFutbolcularOzetBilgi();
+				menajerMenuOpsiyonlari( menajerMenu());
 				break;
 			}
 			case 0: {

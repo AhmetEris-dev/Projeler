@@ -22,6 +22,8 @@ public class FutbollAppRunner {
 	private static Scanner scanner = new Scanner(System.in);
 	private static LigModel ligModel = new LigModel(databaseModel);
 	
+	//TODO bu metotu 2 ye ayır. skipday metotu ekle
+	//TODO dosyaları duzelt.
 	
 	public static void main(String[] args) {
 
@@ -31,6 +33,8 @@ public class FutbollAppRunner {
 
 		startApplication();
 //
+		
+		Random random=new Random();
 		
 	}
 	

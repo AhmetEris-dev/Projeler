@@ -33,10 +33,10 @@ public class DataGenerator {
 	
 	private static final String[] SOYISIM =
 			{"Özogli", "Kaya", "Demir", "Çelik", "Şahin", "Aydın", "Yıldız", "Arslan", "Doğan", "Güneş", "Öztürk",
-					"K" + "ıl", "ıç", "Kurt", "Koç", "Erdoğan", "Polat", "Avcı", "Aksoy", "Taş", "Ünal", "Durmaz",
+					"Kılıç", "Kurt", "Koç", "Erdoğan", "Polat", "Avcı", "Aksoy", "Taş", "Ünal", "Durmaz",
 					"Erdem", "Bulut", "Çetin", "Korkmaz", "Keskin", "Tan", "Güler", "Baş", "Bozkurt", "Ergin",
 					"Özdemir", "Can", "Karaca", "Orhan", "Turan", "Kara", "Ay", "Tekin", "Aslan", "Kurtuluş", "Uzun",
-					"Çalışkan", "Y" + "ücel", "Dinç", "Boz", "Duman", "Şen", "Eken", "Işık", "Özer"};
+					"Çalışkan", "Yücel", "Dinç", "Boz", "Duman", "Şen", "Eken", "Işık", "Özer"};
 	
 	public static void rastgeleFutbolcuUret(FutbolcuDB futbolcuDB) {
 		Random random = new Random();
